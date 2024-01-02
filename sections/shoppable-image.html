@@ -1,0 +1,308 @@
+{{ combine_asset_tag 'stage/shoppable-image/index.css' inline=true }}
+<!-- stage/shoppable-image/index.js -->
+  {{ combine_asset_tag 'vendors/swiper.min.css' inline=true }}
+  {{ combine_asset_tag 
+    'vendors/eventemitter3.min.js'
+    'vendors/@sl_currency-tools-core.min.js'
+    'vendors/swiper.min.js'
+    'vendors/lodash.min.js'
+    'vendors/scroll-lock.min.js'
+    type="text/javascript"
+    defer=true
+  }}
+  {{ combine_asset_tag 
+    'theme-shared/utils/event-bus.js'
+    'theme-shared/utils/parsePathToArray.js'
+    'theme-shared/utils/state-selector.js'
+    'theme-shared/utils/newCurrency/CurrencyConvert.js'
+    'theme-shared/utils/sectionsLoad/index.js'
+    'commons/base/BaseClass.js'
+    'stage/shoppable-image/index.js'
+    type="text/javascript"
+    defer=true
+  }}
+
+
+{{ assign 'blocks' (product_blocks_order_translate section 'blocks' 'block_order') }}
+{{ assign 'text_align' theme.settings.type_body_text_align }}
+{{ assign 'settings' section.settings }}
+{{ assign 'show_divider' settings.show_divider }}
+{{ assign 'link_obj' (useLink settings.jump_link) }}
+{{ assign 'prefix' 'shoppable-image' }}
+{{ assign 'productMockData' (product_mock_data 5 1) }}
+{{#if (isFalsey (length blocks))}}
+  {{ assign 'is_mock_data' true }}
+  
+  {{ assign 'blocks' (JSONparse '[
+    {"horizontal_axis_position": 72.1, "vertical_axis_position": 64.8}
+    ]') }}
+{{/if}}
+{{ assign 'initSlide' -1 }}
+
+{{#each blocks as | hotpots |}}
+  {{ assign 'product' false }}
+  {{#if (isTruthy hotpots.settings.product_id)}}
+    
+    {{ assign 'product' (get 'spu' (get hotpots.settings.product_id ../all_products)) }}
+  {{/if}}
+  
+  {{#if (boolean (boolean (isFalsey ../is_mock_data) '&&' (isTruthy product)) '&&' (isTruthy product.shelves))}}
+    {{#if ../initSlide '==' -1}}
+      {{#with ../../this}}
+        {{ assign 'initSlide' @index }}
+      {{/with}}
+    {{/if}}
+  {{/if}}
+{{/each}}
+
+{{#if initSlide '==' -1}}
+  {{ assign 'initSlide' 0 }}
+{{/if}}
+
+  <div
+    class="__sl-custom-track-stage-shoppableImage {{ prefix }} color-scheme-{{ settings.color_scheme }}"
+    data-section-type="shoppable-image"
+    data-section-id="{{ section.id }}"
+  >
+    <div class="{{ prefix }}__wrapper">
+      <div class="{{ prefix }}__image-wrapper{{#if (isFalsey settings.image)}} {{ prefix }}__image-wrapper-empty {{/if}}">
+        {{#if settings.image}}
+          {{ snippet 'global-image' image=settings.image scale='auto' empty-scale=0.7 }}
+        {{else}}
+          {{ snippet 'icons/icon_shoppable_image_empty' }}
+        {{/if}}
+        
+        {{#each blocks as | hotpots |}}
+          {{#if (isTruthy ../is_mock_data)}}
+            {{ assign 'horizontal_axis_position' hotpots.horizontal_axis_position }}
+            {{ assign 'vertical_axis_position' hotpots.vertical_axis_position }}
+          {{else}}
+            {{ assign 'horizontal_axis_position' hotpots.settings.horizontal_axis_position }}
+            {{ assign 'vertical_axis_position' hotpots.settings.vertical_axis_position }}
+          {{/if}}
+          {{ assign 'horizontal_axis_position' (divide horizontal_axis_position 100) }}
+          {{ assign 'vertical_axis_position' (divide vertical_axis_position 100) }}
+          <div
+            class="{{ ../prefix }}__hotspot __sl-custom-track-stage-shoppableImage-button
+              {{#if ../settings.hotpot_style '===' 'black'}}{{ ../prefix }}__hotspot-black{{/if}}
+              {{#if @index '===' ../initSlide}}{{ ../prefix }}__hotspot-active{{/if}}"
+            style="left: calc((100% - 30px) * {{ horizontal_axis_position }}); top: calc((100% - 30px) * {{ vertical_axis_position }});"
+            data-index="{{ add @index 1 }}"
+          >
+          </div>
+        {{/each}}
+      </div>
+      {{#if settings.product_button_text}}
+        <button class="btn btn-primary {{ prefix }}__md-button d-md-none d-block">
+          {{ settings.product_button_text }}
+        </button>
+      {{/if}}
+
+      <div class="{{ prefix }}__swiper-wrapped" data-init-slide="{{ ../initSlide }}">
+        <div>
+          <i class="{{ prefix }}__close-button d-md-none d-block">{{ snippet 'icons/icon_close' size=10 }}</i>
+          <div class="{{ prefix }}__swiper swiper-container">
+            <div class="swiper-wrapper">
+              {{#each blocks as | hotpots |}}
+                {{ assign 'isMockData' false }}
+                {{ assign 'product' false }}
+                {{#if (isTruthy hotpots.settings.product_id)}}
+                  
+                  {{ assign 'product' (get 'spu' (get hotpots.settings.product_id ../all_products)) }}
+                  {{ assign 'productSku' (get 'sku' (get hotpots.settings.product_id ../all_products)) }}
+                {{/if}}
+                
+                {{#if (boolean (boolean (isTruthy ../is_mock_data) '||' (isFalsey product)) '||' (isFalsey product.shelves))}}
+                  
+                  {{ assign 'product' (itemAt ../productMockData (modulo (add @index 1) 5)) }}
+                  {{ assign 'isMockData' true }}
+                {{/if}}
+                <div class="swiper-slide" data-mock="{{ isMockData }}">
+                  {{#if ../settings.title}}
+                    <h2 class="{{ ../prefix }}__title title3">
+                      {{ ../settings.title }}
+                    </h2>
+                  {{/if}}
+                  {{#if ../settings.sub_title}}
+                    <div class="{{ ../prefix }}__sub-title body3">
+                      {{ ../settings.sub_title }}
+                    </div>
+                  {{/if}}
+
+                  {{ snippet 'product-tooltip-by-shoppable-image' imgNoReferrerSwitch=../imgNoReferrerSwitch product=product productSku=productSku buttonText=../section.settings.product_button_text isMockData=isMockData showDivider=../show_divider }}
+                </div>
+              {{/each}}
+            </div>
+            <div class="{{ prefix }}__swiper-pagination">
+              {{#unless request.is_mobile}}
+              <div
+                class="{{ prefix }}__arrow {{ prefix }}__arrow--left d-none d-md-flex swiper-button-prev-{{ section.id }}"
+              >
+                {{ snippet 'icons/icon_strong_arrow_r' class='mobile-nav__icon' }}
+              </div>
+              <div
+                class="{{ prefix }}__arrow {{ prefix }}__arrow--right d-none d-md-flex swiper-button-next-{{ section.id }}"
+              >
+                {{ snippet 'icons/icon_strong_arrow_r' class='mobile-nav__icon' }}
+              </div>
+              {{/unless}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{{#schema}}
+{
+  "name": "t:sections.shoppable-image.name",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "product",
+      "icon": "product",
+      "name": "t:sections.shoppable-image.blocks.product.name",
+      "settings": [
+        {
+          "type": "product_picker",
+          "id": "product_id",
+          "label": "t:sections.shoppable-image.blocks.product.settings.product_id.label"
+        },
+        {
+          "type": "range",
+          "id": "horizontal_axis_position",
+          "label": "t:sections.shoppable-image.blocks.product.settings.horizontal_axis_position.label",
+          "default": 50,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        },
+        {
+          "type": "range",
+          "id": "vertical_axis_position",
+          "label": "t:sections.shoppable-image.blocks.product.settings.vertical_axis_position.label",
+          "default": 50,
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.shoppable-image.settings.color_scheme.label",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.shoppable-image.settings.color_scheme.options__0.label"
+        },
+        {
+          "value": "1",
+          "label": "t:sections.shoppable-image.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.shoppable-image.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.shoppable-image.settings.color_scheme.options__3.label"
+        }
+      ]
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "t:sections.shoppable-image.settings.title.label",
+      "default": "TEXT COLUMNS WITH IMAGES"
+    },
+    {
+      "id": "sub_title",
+      "type": "text",
+      "label": "t:sections.shoppable-image.settings.sub_title.label",
+      "default": "Make an image shoppable by adding hotspots that link to various products."
+    },
+    {
+      "id": "image",
+      "type": "image_picker",
+      "label": "t:sections.shoppable-image.settings.image.label"
+    },
+    {
+      "id": "product_button_text",
+      "type": "text",
+      "label": "t:sections.shoppable-image.settings.product_button_text.label",
+      "default": "View product"
+    },
+    {
+      "type": "select",
+      "id": "hotpot_style",
+      "label": "t:sections.shoppable-image.settings.hotpot_style.label",
+      "options": [
+        {
+          "label": "t:sections.shoppable-image.settings.hotpot_style.options__0.label",
+          "value": "white"
+        },
+        {
+          "label": "t:sections.shoppable-image.settings.hotpot_style.options__1.label",
+          "value": "black"
+        }
+      ],
+      "default": "white"
+    },
+    {
+      "type": "switch",
+      "id": "show_divider",
+      "label": "t:sections.shoppable-image.settings.show_divider.label",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.shoppable-image.presets.presets__0.name",
+      "category_index": 1,
+      "category": "t:sections.shoppable-image.presets.presets__0.category",
+      "settings": {
+        "color_scheme": "none",
+        "title": "Shop the look",
+        "sub_title": "Make an image shoppable by adding hotspots that link to various products.",
+        "image": null,
+        "product_button_text": "View product",
+        "hotpot_style": "white",
+        "show_divider": false
+      },
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "product_id": "",
+            "horizontal_axis_position": 72.1,
+            "vertical_axis_position": 64.8
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product_id": "",
+            "horizontal_axis_position": 39.9,
+            "vertical_axis_position": 60.8
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "product_id": "",
+            "horizontal_axis_position": 57.9,
+            "vertical_axis_position": 29.8
+          }
+        }
+      ]
+    }
+  ]
+}
+{{/schema}}

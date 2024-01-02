@@ -1,0 +1,291 @@
+{{ assign 'settings' section.settings }}
+{{ assign 'linkObj1' (useLink settings.jump_link1 ../query) }}
+{{ assign 'position' settings.text_position }}
+{{ assign 'color_scheme' settings.color_scheme }}
+{{ assign 'id' (replace section.id '/' '-') }}
+{{ assign 'section_type' 'text-with-video' }}
+
+{{ combine_asset_tag 'stage/text-with-video/index.css' inline=true }}
+<!-- stage/text-with-video/index.js -->
+  
+  {{ combine_asset_tag 
+    'theme-shared/utils/sectionsLoad/index.js'
+    'stage/video/utils/Player.js'
+    'commons/video/LibraryLoader.js'
+    'commons/video/state.js'
+    'commons/video/YoutubeReadyWatcher.js'
+    'stage/video/utils/YouTube.js'
+    'stage/video/utils/VimeoPlayer.js'
+    'commons/video/AutoplayChecker.js'
+    'commons/video/VideoJs.js'
+    'commons/utils/init-when-visible.js'
+    'stage/video/utils/video.js'
+    'stage/text-with-video/index.js'
+    type="text/javascript"
+    defer=true
+  }}
+
+{{ snippet 'section-padding-creator' sectionId=section.id paddingTop=section.settings.padding_top paddingBottom=section.settings.padding_bottom }}
+
+<div class="color-scheme-{{ color_scheme }}">
+  <div
+    class="text-with-video text-with-video__position-{{ position }} container section-gap"
+    data-section-type="{{ section_type }}"
+    data-section-id="{{ id }}">
+
+    <div class="text-with-video__videowrap">
+      {{ snippet 'video-item' section_type=section_type }}
+    </div>
+
+    <div class="text-with-video__block">
+        <div class="text-with-video__subTitle body3 ls-30p">{{ settings.sub_title }}</div>
+        {{#if settings.title}}
+            <h2 class="text-with-video__title title3">{{ settings.title }}</h2>
+        {{/if}}
+        {{#if settings.text}}
+            <div class="body3 sl-richtext">{{{ settings.text }}}</div>
+        {{/if}}
+        {{#if settings.button_text1}}
+          <div class="text-with-video__btn">
+            <a {{{ linkObj1.hrefAttr }}} class="btn btn-primary">{{ settings.button_text1 }}</a>
+          </div>
+        {{/if}}
+    </div>
+  </div>
+</div>
+
+{{#schema}}
+{
+  "name": "t:sections.text-with-video.name",
+  "blocks": [],
+  "settings": [
+    {
+      "type": "group_header",
+      "label": "t:sections.text-with-video.settings.group_header__0.label"
+    },
+    {
+      "id": "sub_title",
+      "type": "text",
+      "label": "t:sections.text-with-video.settings.sub_title.label",
+      "default": "Improved"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "t:sections.text-with-video.settings.title.label",
+      "default": "Media with text"
+    },
+    {
+      "id": "text",
+      "type": "richtext",
+      "label": "t:sections.text-with-video.settings.text.label",
+      "default": "Pair large text with media to draw attention to an important detail of your brand or product line."
+    },
+    {
+      "id": "button_text1",
+      "type": "text",
+      "label": "t:sections.text-with-video.settings.button_text1.label",
+      "default": "Optional button"
+    },
+    {
+      "id": "jump_link1",
+      "type": "url",
+      "label": "t:sections.text-with-video.settings.jump_link1.label"
+    },
+    {
+      "id": "text_position",
+      "type": "select",
+      "label": "t:sections.text-with-video.settings.text_position.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.text-with-video.settings.text_position.options__0.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.text-with-video.settings.text_position.options__1.label"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.text-with-video.settings.group_header__1.label"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "format": "video",
+      "placeholder": "https://www.youtube.com/watch?v=V7BEzkRBp_g",
+      "info": "t:sections.text-with-video.settings.video_url.info",
+      "label": "t:sections.text-with-video.settings.video_url.label"
+    },
+    {
+      "type": "switch",
+      "id": "autoplay",
+      "label": "t:sections.text-with-video.settings.autoplay.label",
+      "info": "t:sections.text-with-video.settings.autoplay.info",
+      "default": false
+    },
+    {
+      "type": "switch",
+      "id": "quiet",
+      "label": "t:sections.text-with-video.settings.quiet.label",
+      "default": true
+    },
+    {
+      "type": "switch",
+      "id": "loop",
+      "label": "t:sections.text-with-video.settings.loop.label",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "ratio",
+      "label": "t:sections.text-with-video.settings.ratio.label",
+      "default": "16:9",
+      "options": [
+        {
+          "label": "t:sections.text-with-video.settings.ratio.options__0.label",
+          "value": "3:2"
+        },
+        {
+          "label": "t:sections.text-with-video.settings.ratio.options__1.label",
+          "value": "4:3"
+        },
+        {
+          "label": "t:sections.text-with-video.settings.ratio.options__2.label",
+          "value": "16:9"
+        },
+        {
+          "label": "t:sections.text-with-video.settings.ratio.options__3.label",
+          "value": "21:9"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "cover",
+      "label": "t:sections.text-with-video.settings.cover.label"
+    },
+    {
+      "type": "select",
+      "id": "background_position",
+      "label": "t:sections.text-with-video.settings.background_position.label",
+      "default": "center",
+      "options": [
+        {
+          "value": "left-top",
+          "label": "t:sections.text-with-video.settings.background_position.options__0.label"
+        },
+        {
+          "value": "top",
+          "label": "t:sections.text-with-video.settings.background_position.options__1.label"
+        },
+        {
+          "value": "right-top",
+          "label": "t:sections.text-with-video.settings.background_position.options__2.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.text-with-video.settings.background_position.options__3.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.text-with-video.settings.background_position.options__4.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.text-with-video.settings.background_position.options__5.label"
+        },
+        {
+          "value": "left-bottom",
+          "label": "t:sections.text-with-video.settings.background_position.options__6.label"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.text-with-video.settings.background_position.options__7.label"
+        },
+        {
+          "value": "right-bottom",
+          "label": "t:sections.text-with-video.settings.background_position.options__8.label"
+        }
+      ]
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.text-with-video.settings.group_header__2.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.text-with-video.settings.padding_top.label",
+      "default": 60,
+      "max": 100,
+      "min": 0,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.text-with-video.settings.padding_bottom.label",
+      "default": 60,
+      "max": 100,
+      "min": 0,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.text-with-video.settings.color_scheme.label",
+      "default": "2",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.text-with-video.settings.color_scheme.options__0.label"
+        },
+        {
+          "value": "1",
+          "label": "t:sections.text-with-video.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.text-with-video.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.text-with-video.settings.color_scheme.options__3.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.text-with-video.presets.presets__0.name",
+      "category_index": 3,
+      "category": "t:sections.text-with-video.presets.presets__0.category",
+      "blocks": [],
+      "settings": {
+        "sub_title": "Improved",
+        "title": "Media with text",
+        "text": "Pair large text with media to draw attention to an important detail of your brand or product line.",
+        "button_text1": "Optional button",
+        "jump_link1": "",
+        "text_position": "right",
+        "video_url": "",
+        "autoplay": false,
+        "quiet": true,
+        "loop": false,
+        "ratio": "16:9",
+        "cover": "",
+        "background_position": "center",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "color_scheme": 2
+      }
+    }
+  ]
+}
+{{/schema}}

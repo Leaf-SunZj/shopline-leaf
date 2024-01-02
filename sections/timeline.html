@@ -1,0 +1,228 @@
+{{ combine_asset_tag 'stage/timeline/index.css' inline=true }}
+<!-- stage/timeline/index.js -->
+  {{ combine_asset_tag 'vendors/swiper.min.css' inline=true }}
+  {{ combine_asset_tag 
+    'vendors/swiper.min.js'
+    type="text/javascript"
+    defer=true
+  }}
+  {{ combine_asset_tag 
+    'theme-shared/utils/sectionsLoad/index.js'
+    'commons/utils/isMobile.js'
+    'stage/timeline/index.js'
+    type="text/javascript"
+    defer=true
+  }}
+
+
+{{ assign 'blocks' (product_blocks_order_translate section 'blocks' 'block_order') }}
+
+{{ snippet 'section-padding-creator' sectionId=section.id paddingTop=section.settings.padding_top paddingBottom=section.settings.padding_bottom }}
+<div
+  class="section-gap container timeline-container"
+  data-section-type="timeline"
+  data-section-id="{{ section.id }}"
+  >
+
+  <div class="swiper-container timeline-swiper">
+    <div class="swiper-wrapper color-scheme-{{ section.settings.color_scheme }}">
+      {{#each blocks}}
+        <div {{{ this.shopline_attributes }}} class="swiper-slide timeline-slide timeline-slide-{{ @index }}" data-tab="{{ cond settings.tab settings.tab 'Time' }}">
+          <div class="row">
+            <div style="background: url({{ img_url settings.image.url width=1 }})" class="col col-24 timeline-slide__img-col">
+              <style>
+                @media (min-width: 750px) {
+                  [data-section-id="{{ ../section.id }}"] .timeline-slide-{{ @index }} .timeline-slide__img {
+                    width: {{ append (default settings.image_width 500) 'px' }};
+                  }
+                }
+              </style>
+              <div class="timeline-slide__img">
+                {{#isTruthy settings.image.url}}
+                  <img
+                    class="lozad"
+                    alt="{{ settings.image.alt }}"
+                    data-src="{{ settings.image.url }}"
+                    data-sizes="auto"
+                  />
+                {{else}}
+                  {{ snippet 'icons/icon_image' }}
+                {{/isTruthy}}
+              </div>
+            </div>
+            <div class="col col-24 timeline-slide__content-col">
+              <div class="timeline-slide__content">
+                {{#if settings.subtitle}}
+                  <h4 class="body4 text-uppercase ls-20p">{{ settings.subtitle }}</h4>
+                {{/if}}
+                {{#if settings.title}}
+                  <h3 class="title5">{{{ settings.title }}}</h3>
+                {{/if}}
+                {{#if settings.description}}
+                  <div class="timeline-slide__description body4 sl-richtext">{{{ settings.description }}}</div>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="swiper-pagination body4 text-uppercase ls-20p"></div>
+  </div>
+</div>
+
+
+{{#schema}}
+{
+  "name": "t:sections.timeline.name",
+  "class": "index-section--mc",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.timeline.settings.color_scheme.label",
+      "default": "2",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.timeline.settings.color_scheme.options__0.label"
+        },
+        {
+          "value": "1",
+          "label": "t:sections.timeline.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.timeline.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.timeline.settings.color_scheme.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.timeline.settings.group_header__0.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.timeline.settings.padding_top.label",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.timeline.settings.padding_bottom.label",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "timeline",
+      "icon": "image",
+      "name": "t:sections.timeline.blocks.timeline.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.timeline.blocks.timeline.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "tab",
+          "label": "t:sections.timeline.blocks.timeline.settings.tab.label",
+          "default": "2003"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "t:sections.timeline.blocks.timeline.settings.subtitle.label"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "t:sections.timeline.blocks.timeline.settings.title.label",
+          "default": "Example title",
+          "limit": 500
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "t:sections.timeline.blocks.timeline.settings.description.label",
+          "default": "<p>Add your own custom content to give more information about your store, availability details...</p>"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "label": "t:sections.timeline.blocks.timeline.settings.image_width.label",
+          "default": 500,
+          "min": 60,
+          "max": 650,
+          "step": 10,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.timeline.presets.presets__0.name",
+      "category_index": 4,
+      "category": "t:sections.timeline.presets.presets__0.category",
+      "settings": {
+        "color_scheme": "2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": [
+        {
+          "type": "timeline",
+          "settings": {
+            "image": {},
+            "tab": "2001",
+            "subtitle": "",
+            "title": "Example title",
+            "description": "<p>Add your own custom content to give more information about your store, availability details...</p>",
+            "image_width": 500
+          }
+        },
+        {
+          "type": "timeline",
+          "settings": {
+            "image": {},
+            "overlay": true,
+            "tab": "2002",
+            "subtitle": "",
+            "title": "Example title",
+            "description": "<p>Add your own custom content to give more information about your store, availability details...</p>",
+            "image_width": 500
+          }
+        },
+        {
+          "type": "timeline",
+          "settings": {
+            "image": {},
+            "overlay": true,
+            "tab": "2003",
+            "subtitle": "",
+            "title": "Example title",
+            "description": "<p>Add your own custom content to give more information about your store, availability details...</p>",
+            "image_width": 500
+          }
+        }
+      ]
+    }
+  ]
+}
+{{/schema}}

@@ -1,0 +1,403 @@
+{
+  "name": "index.html",
+  "sections": {
+    "featured-collection-1": {
+      "type": "featured-collection",
+      "disabled": false,
+      "settings": {
+        "title": "Featured collection",
+        "full_width": false,
+        "bg_image_mask_opacity": 0,
+        "bg_image_mask_color": "#000000",
+        "products_num": 10,
+        "pc_cols": 3,
+        "md_cols": 1,
+        "slice_in_mobile": true,
+        "slice_in_pc": true,
+        "slice_in_pc_style": "right_blank",
+        "color_scheme": "2",
+        "button_text": "View all",
+        "product_image_ratio": "0",
+        "product_fill_type": "cover",
+        "product_hover_show_next": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "blog": {
+      "type": "blog",
+      "disabled": false,
+      "settings": {
+        "title": "Blogs",
+        "limit": 3,
+        "layout": "grid",
+        "blog_collection_id": "",
+        "color_scheme": "none",
+        "is_show_date": true,
+        "is_show_author": true,
+        "is_show_cover": true,
+        "cover_img_ratio": "0.75",
+        "is_show_desc": true,
+        "btn_text": "View all",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "image_ratio": "0.75"
+      },
+      "blocks": {}
+    },
+    "featured-collection-2": {
+      "type": "featured-collection",
+      "disabled": false,
+      "settings": {
+        "title": "Featured collection",
+        "full_width": false,
+        "products_num": 10,
+        "pc_cols": 3,
+        "md_cols": 1,
+        "slice_in_mobile": true,
+        "button_text": "View all",
+        "product_image_ratio": "0",
+        "bg_image_mask_opacity": 30,
+        "bg_image_mask_color": "#7AA5C1",
+        "slice_in_pc": true,
+        "slice_in_pc_style": "left_blank",
+        "color_scheme": "1",
+        "product_fill_type": "cover",
+        "product_hover_show_next": false,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "product_categories": "",
+        "bg_image": null
+      },
+      "blocks": {},
+      "block_order": []
+    },
+    "collection-list": {
+      "type": "collection-list",
+      "disabled": false,
+      "settings": {
+        "title": "",
+        "collection_image_ratio": "100",
+        "color_scheme": "2",
+        "slice_in_pc": false,
+        "slice_in_mobile": false,
+        "button_text": "",
+        "collection_text_position": "inside_picture",
+        "m_cols": 1,
+        "show_full": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      },
+      "blocks": {
+        "block-1": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center_center"
+          }
+        },
+        "block-2": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center_center"
+          }
+        },
+        "block-3": {
+          "type": "collection",
+          "settings": {
+            "image_display_area": "center_center"
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "block-3"
+      ]
+    },
+    "image-banner": {
+      "type": "image-banner",
+      "disabled": false,
+      "settings": {
+        "banner_height_size": "middle",
+        "override_banner_height": false,
+        "pc_text_position": "left-bottom",
+        "pc_show_textarea": false,
+        "alpha_range": "30",
+        "color_scheme": "none",
+        "mobile_banner_flatten": true,
+        "m_show_textarea": false,
+        "banner1": "",
+        "banner2": ""
+      },
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Two Line\nTitle Slide",
+            "title_size": "medium"
+          }
+        },
+        "desc": {
+          "type": "desc",
+          "settings": {
+            "description": "And optional subtext"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_text": "SHOP NOW",
+            "link": "",
+            "outline_button": true,
+            "link_text_2": "",
+            "link_2": "",
+            "outline_button_2": true
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "desc",
+        "button"
+      ]
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "disabled": false,
+      "settings": {
+        "image_height": "auto",
+        "show_full": true,
+        "pc_image_width": "large",
+        "pc_image_position": "right",
+        "pc_box_align": "middle",
+        "pc_text_align": "left",
+        "image_overlap_display": false,
+        "color_scheme": "2",
+        "mobile_text_align": "left",
+        "show_divider": true,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "image": {}
+      },
+      "blocks": {
+        "sub_title": {
+          "type": "sub_title",
+          "settings": {
+            "text": "Improved"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "title": "Image with text",
+            "title_size": "medium"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+            "content": "Pair large text with a full-width image to draw attention to an important detail of your brand or product line."
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_text": "Optional button",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "sub_title",
+        "title",
+        "content",
+        "button"
+      ]
+    },
+    "shoppable-image": {
+      "type": "shoppable-image",
+      "disabled": false,
+      "settings": {
+        "title": "Shop the look",
+        "sub_title": "Make an image shoppable by adding hotspots that link to various products.",
+        "product_button_text": "View product",
+        "hotpot_style": "white",
+        "color_scheme": "2",
+        "show_divider": true,
+        "image": null
+      },
+      "blocks": {
+        "product1": {
+          "type": "product",
+          "settings": {
+            "horizontal_axis_position": 72.1,
+            "vertical_axis_position": 64.8,
+            "product_id": ""
+          }
+        },
+        "product2": {
+          "type": "product",
+          "settings": {
+            "horizontal_axis_position": 39.9,
+            "vertical_axis_position": 60.8,
+            "product_id": ""
+          }
+        },
+        "product3": {
+          "type": "product",
+          "settings": {
+            "horizontal_axis_position": 57.9,
+            "vertical_axis_position": 29.8,
+            "product_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "product1",
+        "product2",
+        "product3"
+      ]
+    },
+    "text-columns-with-images": {
+      "type": "text-columns-with-images",
+      "disabled": false,
+      "settings": {
+        "title": "Text columns with images",
+        "image_width": "100%",
+        "image_ratio": "100%",
+        "text_align": "left",
+        "show_block_bg": true,
+        "button_text": "",
+        "jump_link": "",
+        "show_touch": true,
+        "color_scheme": "none",
+        "pc_cols": 3,
+        "md_cols": 2,
+        "padding_bottom": 60,
+        "padding_top": 60
+      },
+      "blocks": {
+        "block-1": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "description": "Example title",
+            "button_text": "",
+            "jump_link": "",
+            "image": {}
+          }
+        },
+        "block-2": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "description": "Example title",
+            "button_text": "",
+            "jump_link": "",
+            "image": {}
+          }
+        },
+        "block-3": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "description": "Example title",
+            "button_text": "",
+            "jump_link": "",
+            "image": {}
+          }
+        },
+        "block-4": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "description": "Example title",
+            "button_text": "",
+            "jump_link": "",
+            "image": {}
+          }
+        },
+        "block-5": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "description": "Example title",
+            "button_text": "",
+            "jump_link": "",
+            "image": {}
+          }
+        },
+        "block-6": {
+          "type": "item",
+          "settings": {
+            "title": "",
+            "description": "Example title",
+            "button_text": "",
+            "jump_link": "",
+            "image": {}
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "block-3",
+        "block-4",
+        "block-5",
+        "block-6"
+      ]
+    },
+    "1702365967265ebf06ea": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      },
+      "blocks": {
+        "1702365967266a35675a": {
+          "name": {
+            "zh-hans-cn": "询盘-图文",
+            "en": "Inquiry-Graphics",
+            "id": "Inquiry-Graphics",
+            "th": "สอบถาม-กราฟิก",
+            "vi": "Yêu cầu-Đồ họa",
+            "ms": "Inkuiri-Grafik",
+            "zh-hant-tw": "詢盤-圖文"
+          },
+          "type": "shopline://apps/B2B & Wholesale Solution/blocks/inquiry-image-with-text/bfff4d4c-b743-4512-b67b-beba0a03efe5",
+          "settings": {
+            "inquiry_form_id": "6240447937454825921",
+            "image": {
+              "url": "https://img-va.myshopline.com/image/store/1693883025884/image-27.png?w=380&h=380",
+              "alt": null
+            },
+            "image_width": 500,
+            "sub_title": "Improved",
+            "title": "Image with text",
+            "text": "Pair large text with a full-width image to draw attention to an important detail of your brand or product line.",
+            "button_text": "Optional button",
+            "text_position": "left",
+            "show_divider": false
+          },
+          "blockId": "1702365967266a35675a"
+        }
+      },
+      "block_order": [
+        "1702365967266a35675a"
+      ],
+      "custom_css": []
+    }
+  },
+  "order": [
+    "image-banner",
+    "collection-list",
+    "featured-collection-1",
+    "image-with-text",
+    "featured-collection-2",
+    "text-columns-with-images",
+    "shoppable-image",
+    "blog",
+    "1702365967265ebf06ea"
+  ]
+}

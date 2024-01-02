@@ -1,0 +1,101 @@
+{{ assign 'currentPageInfo' (get section.settings.page_id pages) }}
+{{ assign 'prefix' 'stage-main-page' }}
+
+{{ combine_asset_tag 'stage/custom-page/index.css' inline=true }}
+<!-- stage/custom-page/index.js -->
+  
+  {{ combine_asset_tag 
+    'commons/utils/createShadowDom.js'
+    'stage/custom-page/index.js'
+    type="text/javascript"
+    defer=true
+  }}
+
+
+{{ snippet 'section-padding-creator' sectionId=section.id paddingTop=section.settings.padding_top paddingBottom=section.settings.padding_bottom }}
+<div class="__sl-custom-track-stage-customPage color-scheme-{{ section.settings.color_scheme }} section-gap">
+  <div class='container {{ prefix }}__container '>
+    <h2 class='title3 __sl-custom-track-page-title'>{{{ currentPageInfo.name.default }}}</h2>
+    <div class="__sl-custom-track-page-content">
+      <div class="render-by-page">
+        {{ snippet 'custom-page-render' pageConfig=currentPageInfo.htmlConfig forPage=true }}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{#schema}}
+{
+  "name": "t:sections.custom-page.name",
+  "settings": [
+    {
+      "type": "page_picker",
+      "id": "page_id",
+      "default": "",
+      "label": "t:sections.custom-page.settings.page_id.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.custom-page.settings.color_scheme.label",
+      "default": "2",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.custom-page.settings.color_scheme.options__0.label"
+        },
+        {
+          "value": "1",
+          "label": "t:sections.custom-page.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.custom-page.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.custom-page.settings.color_scheme.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.custom-page.settings.group_header__0.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.custom-page.settings.padding_top.label",
+      "default": 60,
+      "max": 100,
+      "min": 0,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.custom-page.settings.padding_bottom.label",
+      "default": 60,
+      "max": 100,
+      "min": 0,
+      "step": 2,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.custom-page.presets.presets__0.name",
+      "category_index": 8,
+      "category": "t:sections.custom-page.presets.presets__0.category",
+      "settings": {
+        "page_id": "",
+        "color_scheme": "2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  ]
+}
+{{/schema}}

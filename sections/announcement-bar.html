@@ -1,0 +1,172 @@
+{{ combine_asset_tag 'stage/announcement-bar/index.css' inline=true }}
+
+<!-- stage/announcement-bar/index.js -->
+  {{ combine_asset_tag 'vendors/swiper.min.css' inline=true }}
+  {{ combine_asset_tag 
+    'vendors/swiper.min.js'
+    type="text/javascript"
+    defer=true
+  }}
+  {{ combine_asset_tag 
+    'theme-shared/utils/sectionsLoad/index.js'
+    'commons/utils/isMobile.js'
+    'stage/announcement-bar/index.js'
+    type="text/javascript"
+    defer=true
+  }}
+
+
+{{ assign 'showAnnouncement' false }}
+
+{{#with this as | global |}}
+  {{#each section.block_order as | blockId |}}
+    {{#with (lookup ../section.blocks blockId)}}
+      {{#if (trim settings.notice_link_text)}}
+        {{#with global}}
+          {{ assign 'showAnnouncement' true }}
+        {{/with}}
+      {{/if}}
+    {{/with}}
+  {{/each}}
+{{/with}}
+
+{{#if showAnnouncement}}
+  {{#if section.settings.sticky}}
+    {{#style}}
+    #shopline-section-{{ section.id }} {
+      position: sticky;
+      top: 0px;
+      z-index: 130;
+    }
+  {{/style}}
+  {{/if}}
+  <div class="announcement-bar__container" data-section-type="announcement-bar" data-section-id="{{ section.id }}" data-display-mode="{{ section.settings.display_mode }}">
+    <div class="announcement-bar__swiper
+    {{#if section.settings.display_mode '===' '3'}}swiper-wrapper{{/if}}
+    {{#if section.settings.display_mode '===' '4'}}swiper-wrapper{{/if}}
+    ">
+      {{#each section.block_order as | blockId |}}
+        {{#with (lookup ../section.blocks blockId)}}
+          {{#if (isTruthy settings.notice_link_text)}}
+            <div class="announcement-swiper-slide announcement-{{ settings.text_align }}-align color-scheme-{{ settings.notice_style }}
+            {{#if settings.announcement_division_bottom}} announcement-division-bottom{{/if}} " {{{ shopline_attributes }}}>
+              {{ assign 'linkItem' (useLink settings.notice_link request.uri.query) }}
+              <div class="__sl-custom-track-stage-header-announcementItem container body4 {{#if linkItem.finalSrc}}announcement-haslink{{/if}}">
+                
+                <a {{{ linkItem.hrefAttr }}} class="announcement__text" style="white-space: pre-wrap;">{{ settings.notice_link_text }}</a>
+              </div>
+            </div>
+          {{/if}}
+        {{/with}}
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+{{#schema}}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "id": "sticky",
+      "type": "switch",
+      "label": "t:sections.announcement-bar.settings.sticky.label",
+      "default": false
+    },
+    {
+      "id": "display_mode",
+      "type": "select",
+      "label": "t:sections.announcement-bar.settings.display_mode.label",
+      "default": "4",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.announcement-bar.settings.display_mode.options__0.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.announcement-bar.settings.display_mode.options__1.label"
+        },
+        {
+          "value": "3",
+          "label": "t:sections.announcement-bar.settings.display_mode.options__2.label"
+        },
+        {
+          "value": "4",
+          "label": "t:sections.announcement-bar.settings.display_mode.options__3.label"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "icon": "normal",
+      "name": "t:sections.announcement-bar.blocks.item.name",
+      "settings": [
+        {
+          "id": "notice_link_text",
+          "type": "text",
+          "label": "t:sections.announcement-bar.blocks.item.settings.notice_link_text.label",
+          "default": "30-day postage paid returns"
+        },
+        {
+          "id": "notice_style",
+          "type": "select",
+          "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.label",
+          "default": "1",
+          "options": [
+            {
+              "value": "",
+              "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.options__0.label"
+            },
+            {
+              "value": "1",
+              "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.options__1.label"
+            },
+            {
+              "value": "2",
+              "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.options__2.label"
+            },
+            {
+              "value": "3",
+              "label": "t:sections.announcement-bar.blocks.item.settings.notice_style.options__3.label"
+            }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "notice_link",
+          "label": "t:sections.announcement-bar.blocks.item.settings.notice_link.label"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "t:sections.announcement-bar.blocks.item.settings.text_align.label",
+          "default": "center",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.announcement-bar.blocks.item.settings.text_align.options__0.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.announcement-bar.blocks.item.settings.text_align.options__1.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.announcement-bar.blocks.item.settings.text_align.options__2.label"
+            }
+          ]
+        },
+        {
+          "id": "announcement_division_bottom",
+          "type": "switch",
+          "label": "t:sections.announcement-bar.blocks.item.settings.announcement_division_bottom.label",
+          "default": true
+        }
+      ]
+    }
+  ]
+}
+{{/schema}}

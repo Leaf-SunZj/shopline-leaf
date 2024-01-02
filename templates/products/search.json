@@ -1,0 +1,23 @@
+{
+  "name": "products/search.html",
+
+ "sections": {
+   "search-page": {
+     "type": "product/search/search-for-template",
+     "disabled": false,
+     "settings": {
+      "pc_cols": 4,
+      "md_cols": 2,
+      "padding_top": 50,
+      "padding_bottom": 50,
+      "display_type": "all",
+      "product_image_ratio": "100",
+      "product_fill_type": "cover",
+      "product_hover_show_next": false
+     }
+   }
+ },
+ "order": [
+   "search-page"
+ ]
+}

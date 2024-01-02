@@ -1,0 +1,867 @@
+{
+  "blog": {
+    "blog": {
+      "next": "次",
+      "previous": "前",
+      "read_more": "続きを見る",
+      "related_articles": "関連ブログ"
+    },
+    "blog_list": {
+      "empty_description": "このブログにはまだ投稿がありません",
+      "readmore": "続きを読む",
+      "title": "ブログ"
+    },
+    "comment": {
+      "comment": "コメント",
+      "comment_audit_tip": "コメントが送信されました。確認が必要です。",
+      "comment_empty": "コメントを入力してください",
+      "email": "メール",
+      "email_empty": "電子メールを空にすることはできません",
+      "email_format": "正しいメールアドレスを入力してください",
+      "form_title": "コメント",
+      "loadmore": "もっと読み込む",
+      "name": "名前",
+      "name_empty": "名前を入力してください",
+      "submit": "参加する",
+      "submit_audit_tip": "正常に送信され、審査待ちです",
+      "success": "正常に送信されました",
+      "title": "{{comment_length}} コメント"
+    },
+    "general": {
+      "back_to": "帰ります {{{collectionTitle}}}"
+    }
+  },
+  "cart": {
+    "cart": {
+      "buy_now": "今すぐ買う",
+      "cancel": "キャンセル",
+      "confirm": "OK",
+      "got_it": "了解しました",
+      "added_to_cart": "すでにカートに入れます",
+      "cart_subtotal": "カートの総金額",
+      "cart_view": "カートを見る"
+    },
+    "checkout": {
+      "max_amount_limit": "チェックアウトの最大金額を超えました"
+    },
+    "checkout_proceeding": {
+      "checkout": "ご購入手続きへ進む",
+      "checkout_proceed": "以下の商品が購入制限を超えていますが、引き続き支払いますか？",
+      "continue": "続行する",
+      "continue_shopping": "買い物に行く",
+      "day": "日",
+      "remove": "削除",
+      "return_to_cart": "カートに戻る",
+      "subtotal": "小計",
+      "tax_included": "税込み"
+    },
+    "couponCode": {
+      "exceedLimit": "割引コードが数量制限を超えています",
+      "existCode": "割引コードは既に存在します",
+      "list": {
+        "unavailable": "すべての割引コードの有効期限が切れています"
+      },
+      "notSupport": {
+        "stacked": "割引コードはスタックできません"
+      },
+      "unavailable": "割引コードの有効期限が切れています"
+    },
+    "discount": {
+      "coupon_code_amount": "クーポンコードの提供",
+      "coupon_code_length_limit": "クーポンコードは {{range}} 文字以内で入力してください",
+      "expected_discount": "見積割引"
+    },
+    "discount_item": {
+      "buy_limit5": "最大{{stock}}点の割引商品を同時に購入できます"
+    },
+    "discount_price": {
+      "buy_limit1": "本商品を割引価格で購入可能件数が{{stock}}件です",
+      "buy_limit2": "最大{{stock}}点の割引商品を同時に購入できます",
+      "buy_limit3": "本商品の特別価格は{{stock}}点の購入のみをサポートしています"
+    },
+    "error": {
+      "default": "リソースの読み込みに失敗しました",
+      "noshipping": "利用できる送料オプションはありません",
+      "order": "注文リクエストが失敗しました",
+      "renew": "データの更新が失敗しました"
+    },
+    "general": {
+      "continue_as_a_guest": "ビジターとして続く",
+      "support_oneTime_purchase_only": "この商品は1回限り購入のみサポートされています",
+      "support_subscription_only": "この商品はサブスク購入のみサポートされています"
+    },
+    "item": {
+      "add_limit2": "1 つの製品を最大 99999 個購入できます",
+      "click_to_view": "クリックして表示",
+      "custom_preview": "カスタムプレビュー",
+      "empty_cart": "あなたのカートは現在空です。",
+      "item_left": "{{stock}} pieces in stock",
+      "market": {
+        "illegal": {
+          "excludedState": "マーケットの商品が違法であり、本商品はマーケットから削除されている状態となりました。"
+        }
+      },
+      "none_existent": "製品が存在しません"
+    },
+    "next_step": {
+      "calculated_taxes_fees": "税金と運賃は次のステップで計算されます"
+    },
+    "notices": {
+      "change_password_after_verification": "確認後にパスワードを変更できます",
+      "excess_product": "以下の商品が購入制限を超えていますので、購入数を変更してください",
+      "product_amount_limit": "申し訳ありません。カート内の商品数が制限を超えています。",
+      "product_selected_invalid": "申し訳ありません。選択された商品は購入できません。もう一度選択してください",
+      "store_nonexistent": "店舗が存在しません"
+    },
+    "order": {
+      "invalid_order_number": "注文番号が無効です",
+      "paymentVoucher": {
+        "downloadDoc": "ファイルをダウンロード",
+        "format": "フォーマット",
+        "formatLimit": "20MB以内のJPG、PNG、GIF、PDFファイルのアップロードがサポートします。 最大5枚の画像をアップロードできます。",
+        "uploadAmount": "{{num}}点のバウチャーがアップロードされました",
+        "uploadLimit": "JPG、PNG、GIF、PDFファイルを20MB以内でアップロードしてください"
+      },
+      "payment_voucher_confirmation": "とった",
+      "shipping_address": "配送先住所",
+      "sign_in": "または、次の方法でサインインします",
+      "tax_included": "税金に{{price}}を含める",
+      "try_again": "アップロードに失敗しました。 もう一度やり直してください。",
+      "try_later": "システムがビジーです。後でもう一度やり直してください。",
+      "upload_bank_transfer_vouhcer_for_confirmation": "銀行振込のバウチャーをアップロードしてください。確認します。",
+      "upload_image_within_10_m_b": "10MB以内にJPG、PNG、GIF画像をアップロードしてください"
+    },
+    "payment": {
+      "channel": "支払いチャネル",
+      "create_time": "ビルトイン",
+      "free": "無料",
+      "log_in": "サインインに進む",
+      "payment_details": "支払詳細",
+      "pending_review": "支払い",
+      "reference_number": "支払いシリアル番号",
+      "status": "状態",
+      "subtotal_price": "小計",
+      "sum": "量",
+      "total_sum": "合計",
+      "update_time": "更新日"
+    },
+    "policy": {
+      "privacy_policy": "プライバシーポリシー"
+    },
+    "promotion": {
+      "no_promotion": "オファーに参加していません"
+    },
+    "shpping": {
+      "service_terms": "利用規約"
+    },
+    "stock": {
+      "limit": "在庫 {{stock}} 個"
+    },
+    "subscription": {
+      "information": "サブスク"
+    },
+    "tips": {
+      "agree_with_the_shop": "次に同意します：",
+      "change_binding_after_verification": "検証後に {{value}} をリンク/変更できます",
+      "forget_password": "パスワードを忘れた場合",
+      "proceed_to_checkout": "決済に進む",
+      "reset_password": "アカウント {{account}} のパスワードをリセットしています"
+    }
+  },
+  "customer": {
+    "accoount": {
+      "email_subscribe_invalid_tip": "無効なメールアドレス"
+    },
+    "account": {
+      "account_binding": "アカウントの関連付け",
+      "account_information": "アカウント",
+      "bind": "関連付け",
+      "birthday": "誕生日",
+      "change_password": "パスワードの変更",
+      "confirm_btn": "確認",
+      "confirm_subscription_modal_btn": "サブスクを確認します",
+      "confirm_subscription_modal_content": "この前にサブスクがすでに送信しました。 確認メールがこのメールアドレスに送信されました。 メールで確認するか、このボタンをクリックして確認します。",
+      "confirm_subscription_modal_title": "メールサブスクを確認してください。",
+      "credit_card_number": "クレジットカード番号",
+      "deadline": "ビジネスレポートの目的でアカウント内のご注文は引き続き表示されています。 アカウントデータは{{time}}に削除されます。このキャンセルプロセスは、この日付より前にキャンセルできます。",
+      "delete_account": "アカウントをキャンセルする",
+      "delete_account_email": "メールアドレス",
+      "delete_account_notify": "アカウントのキャンセルを申し込むことができます。 アカウントをキャンセルされると、アカウント識別用の次のような情報がすべて削除されます：",
+      "email": "メールアドレス",
+      "email_repeat_tip": "メールアドレスが登録されました",
+      "first_name": "名",
+      "gender": "性別",
+      "gender_female": "女性",
+      "gender_male": "男性",
+      "gender_secret": "回答しない",
+      "ip_address": "IPアドレス",
+      "last_name": "姓",
+      "modify_email": "メールの変更",
+      "modify_email_modal_title": "メールの変更",
+      "modify_phone": "電話番号の変更",
+      "modify_phone_modal_title": "電話番号の変更",
+      "name": "名前",
+      "next": "続き",
+      "nickname_empty_error": "姓と名の両方を空にすることはできません",
+      "not_set": "まだ設定されていません",
+      "password": "パスワード",
+      "personal__info": "個人情報",
+      "personal__information": "個人情報",
+      "phone": "携帯電話",
+      "reset_password_error_hint": "先にメールまたは携帯電話を関連付けてください",
+      "revoke": "アカウントの削除をキャンセルする",
+      "revoke_message": "本アカウントはキャンセル中となります。アカウントデータは{{time}}に削除されます。このキャンセルプロセスは、この日付より前にキャンセルできます。",
+      "save_btn": "セーブ",
+      "select__date": "日付を選択してください",
+      "subscribe_confirm_tip": "サブスクしていただきありがとうございます。",
+      "timeout_tip": "操作がタイムアウトしました。もう一度検証してください",
+      "unknow_error_tip": "サーバーエラー、後でもう一度試してください",
+      "username": "名前",
+      "verify_email_message": "アカウントをキャンセルする前に、本人確認を行う必要があります。メールアドレス {{email}} に確認コードが届きます",
+      "verify_phone_message": "アカウントをキャンセルする前に、本人確認を行う必要があります。お使いの携帯電話{{phone}}に確認用SMSが届きます"
+    },
+    "activate": {
+      "account_activated": "アカウントが有効化されました",
+      "apply_code": "クーポンコードを適用する",
+      "apply_success": "適用しました",
+      "button": "有効化",
+      "copy_success": "クーポンコードがコピーしました",
+      "discount_title": "アカウントを有効にしてクーポンコードを取得する",
+      "normal_title": "アカウントを有効にする",
+      "subscription_text": "最新情報を受け取り、限定OFFなどにアクセスするため、メールを購読しましょう",
+      "success_title": "おめでとう、クーポンコードを取得しました",
+      "token_expired": "リンクがすでに無効になりました"
+    },
+    "address": {
+      "add_address": "新しい住所の追加",
+      "address": "住所",
+      "adress_full_tip": "50 つの住所が保存されているため、追加はできません",
+      "common_max": "{{max}} 文字未満です!",
+      "common_min": "{{min}} 文字以上",
+      "default": "デフォルト",
+      "delete__address": "住所の削除",
+      "edit_last_name_hint": "姓を入力してください。",
+      "edit_phone_hint": "携帯電話を入力してください。",
+      "edit_shipping_address": "配送先住所の編集",
+      "max_address_tip": "アドレスを作成できる最大限は50個となります",
+      "no_adress_data": "現在、配送先住所はありません",
+      "set_default_address": "デフォルトの住所として設定"
+    },
+    "email": {
+      "mail_common": "メール"
+    },
+    "forget_password": {
+      "forget_password_tips": "パスワードを忘れた場合",
+      "reset_password": "パスワードを再設定する",
+      "tips_password_can_be_changed_after_verification": "確認後にパスワードを変更できます",
+      "tips_reset_password": "アカウント {{account}} のパスワードをリセットしています",
+      "token_expired": "パスワードのリセットリンクがすでに無効になりました"
+    },
+    "general": {
+      "account": "アカウント",
+      "and_button": "および",
+      "apr": "4月",
+      "april": "4月",
+      "aug": "8月",
+      "august": "8月",
+      "back_to__user__center": "ユーザーセンターに戻る",
+      "bind__change_email": "電子メールをリンク/変更する",
+      "bind__change_phone": "携帯電話番号をリンク/変更する",
+      "bind_success": "リンク済み",
+      "cancel": "キャンセル",
+      "cancel_common": "キャンセル",
+      "cancel_mobile_button": "キャンセル",
+      "clear_button": "クリア",
+      "confirm": "OK",
+      "confirm_button": "OK",
+      "date_format": "yyyy-MM-dd",
+      "dec": "12月",
+      "december": "12月",
+      "edit": "編集",
+      "email": "メールアドレス",
+      "email_empty_hint": "メールアドレスを入力してください",
+      "email_error_hint": "50 文字未満の有効な形式のメールアドレスを入力してください",
+      "enter_verification_code": "確認コードを入力してください",
+      "feb": "2月",
+      "february": "2月",
+      "first_day": "1",
+      "fr": "金",
+      "fri": "金",
+      "friday": "金",
+      "image_size_less_than_tips": "画像は {{max}} MB 以下でなければなりません",
+      "jan": "1月",
+      "january": "1月",
+      "jul": "7月",
+      "july": "7月",
+      "jun": "6月",
+      "june": "6月",
+      "mar": "3月",
+      "march": "3月",
+      "max_image_upload_tips": "最大 {{max}} 件の画像をアップロードできます",
+      "may": "5月",
+      "may_short": "5月",
+      "mo": "月",
+      "mon": "月",
+      "monday": "月",
+      "network_error_message": "インターネット接続不可",
+      "nov": "11月",
+      "november": "11月",
+      "oct": "10月",
+      "october": "10月",
+      "ok": "OK",
+      "okay_common": "OK",
+      "orders": "注文",
+      "password": "パスワード",
+      "password_empty_hint": "パスワードを入力してください",
+      "phone": "携帯電話番号",
+      "phone_empty_message": "携帯電話番号を入力してください",
+      "phone_error_message": "有効な形式の携帯電話番号を入力してください",
+      "phone_number_error_message": "有効な電話番号を入力して下さい",
+      "register": "サインアップ",
+      "repeat_passport_error": "入力されたパスワードが一致しません",
+      "repeat_password": "パスワード再入力",
+      "resend": "再送",
+      "sa": "土",
+      "sat": "土",
+      "saturday": "土",
+      "save": "セーブ",
+      "select__date": "日付を選択してください",
+      "select_date": "日付を選択してください",
+      "send": "送信",
+      "send_error": "まず確認コードを送信してください",
+      "send_verification_code_hint": "パスワードを再入力してください",
+      "sep": "9月",
+      "september": "9月",
+      "set_password": "パスワードは、数字、大文字、小文字で構成される 6 ～ 18 文字である必要があります",
+      "sign__out": "サインアウト",
+      "sign_in": "サインイン",
+      "sign_up": "サインアップ",
+      "su": "日",
+      "subscription_desc": "ストアの最新セール情報を入手可能",
+      "sun": "日",
+      "sunday": "日",
+      "th": "木",
+      "thu": "木",
+      "thursday": "木",
+      "time_format": "HH:mm",
+      "today": "今日",
+      "tu": "火",
+      "tue": "火",
+      "tuesday": "火",
+      "update_passport": "パスワードを変更する",
+      "user_agreement_tip": "最初に利用者契約書を読み、同意してください",
+      "username": "メールアドレス/携帯電話番号",
+      "username_empty_hint": "メールアドレスまたは携帯電話番号を入力してください",
+      "verification_code": "確認コード",
+      "verification_code_sent_tip": "確認コードがアカウントに送信されました",
+      "verift_account_tip": "アカウントを確認し、パスワードをリセットしてください",
+      "we": "水",
+      "wed": "水",
+      "wednesday": "水"
+    },
+    "login": {
+      "member_login_common": "会員サインイン",
+      "subscribe_confirm_tip": "サブスクしていただきありがとうございます。 ログインしてより良い体験を得ることができます。"
+    },
+    "message": {
+      "format_error": "メッセージの形式はサポートされていません",
+      "input_placeholder": "メッセージを残されますか？",
+      "message": "メッセージ",
+      "send": "送信"
+    },
+    "phone": {
+      "mobile_common": "電話番号"
+    },
+    "register": {
+      "privacy_policy": "プライバシーポリシー",
+      "terms_of_service": "利用規約"
+    },
+    "subscription": {
+      "email": "メールアドレス",
+      "email_subscription_text": "プロモーションメールの購読",
+      "line": "LINE",
+      "messenger": "メッセンジャー",
+      "phone": "携帯電話",
+      "phone_subscription_text": "プロモーション電話の購読",
+      "reason_other_length": "300文字以内で入力してください",
+      "reason_other_placeholder": "入力",
+      "save_button": "セーブ",
+      "subscribe_button": "購読",
+      "subscription_cancel_text": "購読解除",
+      "subscription_hint": "購読済み",
+      "subscription_title": "購読",
+      "unsubscribe": "購読解除",
+      "unsubscribe_btn": "購読解除",
+      "unsubscribe_confirm_text": "購読解除",
+      "unsubscribe_feedback_text": "これから、当社からマーケティングの最新情報を受け取ることはありません。 いつでも再購読ことができます",
+      "unsubscribe_feedback_title": "<italic>{{name}}</italic> メーリングリストからの購読を解除する",
+      "unsubscribe_reason1": "このようなメールを受け取りたくありません",
+      "unsubscribe_reason2": "受信したメールが多すぎます",
+      "unsubscribe_reason3": "これらのメールを購読したことがありません",
+      "unsubscribe_reason4": "メールの内容は自分と何の関係もありません",
+      "unsubscribe_reason5": "メールの内容が長すぎます",
+      "unsubscribe_reason6": "そのほか",
+      "unsubscribe_subtitle": "サブスク解約をご希望とのこと、とても残念です。 サブスク解約の理由をご教示下さい：",
+      "unsubscribe_success": "サブスクはすでに解約されました、まもなくホームページにリダイレクトします",
+      "unsubscribe_tip": "購読を解除すると、最新のプロモーションが送付されなくなります。",
+      "unsubscribe_title": "購読解除"
+    }
+  },
+  "general": {
+    "404": {
+      "subtext": "お探しのページは存在しません",
+      "title": "404（ページが見つかりません）"
+    },
+    "abandon": {
+      "Order": {
+        "risk": "リクエスト回数が多すぎます"
+      }
+    },
+    "address": {
+      "address": "住所"
+    },
+    "contact_us": {
+      "contact_us": "弊店をご連絡する",
+      "send_success": "ご連絡誠にありがとうございます、なるべく早く返事が出せるようにいたします。"
+    },
+    "footer": {
+      "copyright": "© {{year}} {{storeName}}",
+      "subscribe_format_error": "メールアドレスの形式が無効です",
+      "subscribe_success": "購読しました"
+    },
+    "general": {
+      "accept": "受け入れる",
+      "decline": "拒否する",
+      "home": "ホームページ",
+      "link": "プライバシーポリシー",
+      "more": "もっと",
+      "no_data": "データがありません",
+      "pack_up": "表示を縮小",
+      "privacy_policy": "プライバシーポリシー",
+      "tel_phone": "電話番号",
+      "tips": "より良い体験を提供するために、Cookieを使用してログインステータスを記録、統計データを収集、興味深いコンテンツを提供します。 「同意する」をクリックして、Cookieの使用を許可します。または、「プライバシーポリシー」をご覧ください。",
+      "title": "私たちはあなたのプライバシーを大切にお守り致します。",
+      "username": "名前"
+    },
+    "header": {
+      "cart": "カート",
+      "center": "センター",
+      "close": "閉じる",
+      "login": "ログイン",
+      "no_currency_fallback": "関連する通貨が見つかりませんでした",
+      "search_input_placeholder": "ここに入力して［検索］をタップします",
+      "copied_link": "シェアリンクがコピーされました",
+      "copy_link": "リンクをコピーする"
+    },
+    "order_tracking": {
+      "code": "検証コード",
+      "email": "Eメール",
+      "form_error": "クエリに失敗しました",
+      "orderId": "オーダーID",
+      "orderId_error": "オーダー ID を空にすることはできません",
+      "query_illegal": "注文が存在しません",
+      "risk_black_user": "このアカウントは危険にさらされています",
+      "risk_interception": "注文が存在しません",
+      "submit_btn": "表示の順序",
+      "username": "メール/電話番号"
+    },
+    "password": {
+      "back": "戻る",
+      "entry_store": "店に進む",
+      "forget_password": "パスワードでアクセス",
+      "goto_admin": "ログインする",
+      "i_am_admin": "私は担当者です",
+      "input_password": "パスワードを入力する",
+      "password_is_error": "パスワードが間違っています、もう一度入力してください"
+    },
+    "policy": {
+      "service": "利用規約",
+      "shipping": "配送ポリシー"
+    }
+  },
+  "order": {
+    "checkout_order": {
+      "pay_amount": "お支払い金額",
+      "receiver_account": "受信者アカウント",
+      "reference_number": "参照番号",
+      "upload_time": "アップロード時間",
+      "upload_voucher": "バウチャーをアップロードする",
+      "voucher_amount_limit": "アップロードできるバウチャーは5つまでです。"
+    },
+    "detail": {
+      "dutyFee": "関税",
+      "orderstatus": {
+        "detail": "詳細"
+      }
+    },
+    "order_details": {
+      "details": "注文の詳細",
+      "order": "注文",
+      "remark": "購入者メモ",
+      "time": "注文："
+    },
+    "order_list": {
+      "no_more_info": "他の情報はありません",
+      "no_record": "現在、注文記録はありません。お買い物に行きましょう",
+      "package_amount": "{{num}} パッケージ（{{item}} アイテム）",
+      "total_amount": "合計 {{transPackages}} アイテム"
+    },
+    "order_status": {
+      "canceled": "キャンセル済み",
+      "click_to_track": "パッケージを追跡するには下のリンクをクリックしてください：",
+      "contact_us": "お問い合わせ",
+      "help_tips": "助けが必要？お問い合わせください:{{email}}",
+      "payment_voucher_transfer_success": "支払いが正常に転送されました",
+      "payment_voucher_waiting_for_payment": "入金待ち",
+      "sequence": "No. {{id}}",
+      "tracking": "トラック"
+    },
+    "payment": {
+      "authorized": "承認済み",
+      "billing_address": "請求先住所",
+      "detail": "詳細",
+      "method": "支払い方法",
+      "paid": "支払い済み",
+      "partially_paid": "一部支払い済み",
+      "paying": "支払い",
+      "payment": "支払い",
+      "payment_status": "支払い状況",
+      "unpaid": "支払いなし"
+    },
+    "shipping": {
+      "info": "情報",
+      "no_info": "配送情報はまだありません。時間を置いて確認してください。",
+      "package_tracking": "パッケージトラッキング",
+      "partially_shipped": "一部出荷",
+      "preparing_order": "商品を準備中",
+      "processing_amount": "処理中（{{num}} アイテム）",
+      "shipped_order": "配送済み"
+    }
+  },
+  "products": {
+    "collection": {
+      "collection": "コレクション"
+    },
+    "general": {
+      "no_product_data_found": "商品データが見つかりません。しばらくしてからもう一度お試しください",
+      "sold_out": "完売",
+      "added_to_cart_successfully": "カートに入れました"
+    },
+    "product_details": {
+      "activity_toast_price_limit": "本商品の特別価格は{{num}}点の購入のみをサポートしています",
+      "activity_toast_product__limit": "最大{{stock}}点の割引商品を同時に購入できます",
+      "activity_toast_title__limit": "以下の商品が購入制限を超えていますので",
+      "amount": "数量",
+      "buy_more_save_more": "もっと買うもっと節約！",
+      "cancel": "キャンセル",
+      "country_region": "国/地域",
+      "default_placeholder": "選択してください {{attrName}}",
+      "description": "説明",
+      "email": "メールアドレス",
+      "enter_email_address": "メールアドレスを入力してください",
+      "enter_valid_email_address": "有効なメールアドレスを入力してください",
+      "give_us_more_of_your_information": "より適切なサービスを提供できるように、より多くの情報を残すこともできます",
+      "go_to_amazon_by_link": "Amazon で購入する",
+      "go_to_rakuten_by_link": "楽天 で購入する",
+      "go_to_yahoo_by_link": "ヤフー で購入する",
+      "in_stock": "在庫あり",
+      "inventory_quantity": "在庫数",
+      "leave_us_message": "コメントを入力してください",
+      "leave_us_message_get_back": "お問い合わせ内容はコメントで残してください。なるべく早くご連絡いたします",
+      "link_preview_does_not_support": "リンクプレビューの操作はサポートされていません",
+      "load_more": "もっと",
+      "maximum_length_of_message": "コメントの長さは1500文字以内に制限されました",
+      "message": "コメント",
+      "more_payment_options": "その他の支払いオプション",
+      "name": "名前",
+      "optional": "任意",
+      "phone_number": "電話番号",
+      "product_enquiry": "商品の問い合わせ",
+      "submission_failed": "送信に失敗しました。後でまたお試しください。",
+      "submission_successfully": "送信完了",
+      "submit": "送信",
+      "tax_included": "税込",
+      "view_product_detail": "商品情報を読む"
+    },
+    "product_list": {
+      "add_to_cart": "カートに追加",
+      "filter": "フィルター",
+      "filters_selected": "{{count}}点が選択されました",
+      "from_price_html": "{{price}} より",
+      "less": "レス",
+      "load_more_desc": "{{current_offset}} ~ {{last_current_offset}} / {{total}} 点のアイテム",
+      "load_more_tip": "もっとアイテムをロードする",
+      "more": "もっと",
+      "new_arrivals": "新着順",
+      "new_products": "登録時間により近くから古くまで",
+      "no_product": "このカテゴリー内に販売している商品がありません",
+      "price_high_to_low": "価格が高い順",
+      "price_low_to_high": "価格が安い順",
+      "product_has_been_removed": "商品は棚から削除されます",
+      "product_sold_out": "完売しました",
+      "products": "商品",
+      "quick_shop": "クイック購入",
+      "recommend": "お勧め",
+      "sale": "セール",
+      "save": "{{{priceDom}}} 引き",
+      "save_byjs": "{{priceDom}} 引き",
+      "save_ratio": "{{price}}% OFF",
+      "select_product_all_options": "この商品のすべてのオプションを選択してください",
+      "top_sellers": "人気順",
+      "more__product_num": "{{num}} 製品",
+      "one_product_num": "{{num}} 商品",
+      "show": "見せる"
+    },
+    "product_search": {
+      "back_to_home": "メインページに戻る",
+      "ount_results": "{{count}} 件の検索結果",
+      "results_found_for": "検索結果 {{count}} 件の \"{{keyword}}\"",
+      "search": "検索",
+      "search_no_results": "\"{{keyword}}\" の検索に一致する商品はありませんでした。"
+    },
+    "recently_viewed_products": {
+      "recently_viewed_products": "最近チェックした商品"
+    }
+  },
+  "reduction_code": {
+    "giftcard": "ギフトカード"
+  },
+  "sales": {
+    "discount_coupon": {
+      "active_date_until": "有効期限は{{endTime}}までです",
+      "applied": "適用しました",
+      "applied_successfully": "クーポンコード適用成功",
+      "apply": "適用",
+      "buy_x_get_y_all_discount_content": "{{discount}}割引で{{benefitCount}}点商品を取得します",
+      "buy_x_get_y_all_free_content": "無料で{{benefitCount}}点商品を取得します",
+      "buy_x_get_y_discount_content": "{{discount}}割りOFF",
+      "buy_x_get_y_free_content": "無料",
+      "buy_x_get_y_threshold": "{{threshold}}を購入すると{{benefitCount}}が無料にお送りします",
+      "coupon_content_level": "{{level}}利用可能",
+      "coupon_discount_content": "{discount} オフ",
+      "coupon_not_found": "クーポンコードが存在しません",
+      "failed_to_apply_coupon_code": "適用失敗",
+      "free__shipping": "送料無料",
+      "get_code": "クーポンコードを入手する",
+      "popup_label": "ストアクーポン：",
+      "shipping_rate_below": "送料が{value}未満となる",
+      "specified_customer": "指定のお客様に利用可能",
+      "threshold": "{threshold}買う"
+    },
+    "flash": {
+      "day": "日",
+      "days": "日"
+    },
+    "general": {
+      "activity_banner_benefit": "{{benefit}}割りOFF",
+      "activity_banner_copy_success_text": "クーポンコードが正常にコピーされました",
+      "activity_banner_free_shipping": "送料無料",
+      "activity_selector_new_arrivals": "新着",
+      "activity_selector_price_high_to_low": "高価格から低価格へ",
+      "activity_selector_price_low_to_high": "低価格から高価格へ",
+      "activity_selector_recommended": "お勧め",
+      "apply_common": "適用",
+      "coupon_code_copied": "クーポンコードが正常にコピーされました",
+      "coupon_code_copy": "コピー",
+      "flash_sale_text": "タイムセール",
+      "flash_sale_tip": "購入制限: {{count}} 点の商品",
+      "hot_sale": "好評発売中",
+      "product_tabs_benefit_amount_locked": "{{benefitAmount}} OFF",
+      "product_tabs_benefit_amount_unlocked": "{{benefitAmount}} OFFのロックが解除されました！",
+      "product_tabs_benefit_discount_locked": "{{offPercent}}％ OFF",
+      "product_tabs_benefit_discount_unlocked": "{{offPercent}}％ OFFのロックが解除されました！",
+      "product_tabs_benefit_free_locked": "無料商品",
+      "product_tabs_benefit_free_unlocked": "無料商品のロックが解除されました！",
+      "product_tabs_benefit_unlocked_tip": "商品割引が受けられることになりました",
+      "product_tabs_code_benefit_amount_unlocked": "{{benefitAmount}}オフで{{benefitCount}}アイテムをゲット",
+      "product_tabs_code_benefit_discount_unlocked": "{{offPercent}}％割引で{{benefitCount}}点商品を購入します",
+      "product_tabs_code_benefit_free_unlocked": "無料で{{benefitCount}}点商品を取得します",
+      "product_tabs_threshold": "{{threshold}} を購入する",
+      "purchase_limit": "プロモーション商品の購入は {{count}} 点に制限されています",
+      "purchase_limit_each_item": "各パタンの購入は {{count}} 点に制限されています",
+      "purchase_limit_each_product": "各プロモーション商品の購入は {{count}} 点に制限されています",
+      "select_promotional_product": "{{selectCount}} 件のイベント商品が選択されました",
+      "sold": "{{count}} 予約済み"
+    },
+    "gift": {
+      "got_all_gifts_tip": "おめでとうございます！{{saved}}件のプレゼントが取得しました",
+      "not_meet_amount_tip": "これ以上{{threshold}}使うと、最大{{willSave}}件プレゼントが取得可能",
+      "not_meet_quantity_tip": "これ以上{{threshold}}件買うと、最大{{willSave}}件プレゼントが取得可能",
+      "select": "選択",
+      "select_gift_tip": "おめでとうございます！{{willSave}}件の無料プレゼントが選択できます",
+      "spend_more_money_get_more_tip": "おめでとうございます！{{saved}}件のプレゼントが取得しました！これ以上{{threshold}}使うと、最大{{willSave}}件プレゼントが取得可能",
+      "spend_more_quantity_get_more_tip": "おめでとうございます！{{saved}}件のプレゼントが取得しました！これ以上{{threshold}}件買うと、最大{{willSave}}件プレゼントが取得可能"
+    },
+    "promotion": {
+      "discount_tag": {
+        "label": "割引:"
+      }
+    }
+  },
+  "trade": {
+    "order_summary": {
+      "rounding": "丸め"
+    },
+    "payments-name": {
+      "COD": "代金引換",
+      "MultiplePayment": "コンビニ前払い",
+      "Paypal": "Paypal",
+      "adjustPay": "manual",
+      "third-part": "クレジットカード"
+    },
+    "reduction_code": {
+      "giftcard": "ギフトカード"
+    }
+  },
+  "transaction": {
+    "contact": {
+      "discounts_stack_not": "期間限定割引とクーポンコードを組み合わせて使用​​することができません。"
+    },
+    "couponCode": {
+      "freeShipping": {
+        "existCode": "送料無料クーポンコードが重複しています"
+      }
+    },
+    "discount": {
+      "code": {
+        "country_not_support": "送料無料クーポンコードで支払う - 適用する国ではありません",
+        "logistics-fee-over-limit": "送料無料クーポンコード - 配送料が制限を超えています"
+      },
+      "code_error": "有効なるクーポンコードを入力してください。",
+      "code_item_unmatched": "{{discountCode}}のクーポンコードがカード内の商品に適用できません。",
+      "code_overdue": "クーポンコードの有効期限が切れています",
+      "code_user_exceedLimit": "ユーザーがこのイベントを使用する回数の制限を超えています",
+      "code_user_notSupport": "ユーザーはこのイベントを使用できません",
+      "coupon_code": "クーポンコード",
+      "coupon_invalid_for_the_shipping_method": "{{discountCode}} クーポンコードは今の配送方法に適用されていません",
+      "discount_codes_cannot_stack": "この商品にはすでに割引があり、他の割引と重ねることはできません。",
+      "use_coupon_alone": "このクーポンコードはほかのプロモーションと割引と一緒に使用できません。"
+    },
+    "general": {
+      "discount_off": "割引",
+      "free_charge": "送料無料",
+      "free_shipping": "送料無料",
+      "order_seller_discount": "セラーカスタム割引",
+      "order_tax": "税金",
+      "order_tip": "ヒント",
+      "payment_subtotal_cost": "小計",
+      "point_discount": "ポイント割引",
+      "shipping_fee": "配送",
+      "trade_coupon_discount": "割引"
+    },
+    "item": {
+      "invalid_product": "無効な商品です",
+      "remove_invalid_product": "無効な商品を削除します",
+      "removed": "棚から削除されました",
+      "sold_out": "在庫切れ"
+    },
+    "lack_multilingualism": "*このステートメントが読み込めに失敗しました。カスタマー サービスに連絡して状況を報告することができます*",
+    "notices": {
+      "insufficient_product_inventory": "商品の在庫が不足しています",
+      "network": "ネットワークエラー",
+      "product_expired": "商品の有効期限が切れています",
+      "product_limit": "商品の制限数を超えました"
+    },
+    "order": {
+      "deleted": "既に削除されました"
+    },
+    "payment": {
+      "continue_shopping": "ショッピングを続ける",
+      "more": "もっと",
+      "total": "合計"
+    },
+    "payment_disconut_channelinvalid_code": {
+      "tips": "このクーポンコード {{discountCode}} は、この販売チャネルに適用されていません"
+    },
+    "policy": {
+      "refund_policy": "代金返却方針"
+    },
+    "refund": {
+      "cost_points": "{{value}}ポイントをコストします",
+      "deduct_point": "{{deductMemberPointNum}}ポイントで{{deductMemberPointAmount}}を差し引くことができます"
+    }
+  },
+  "unvisiable": {
+    "applepay": {
+      "cancel": "キャンセル",
+      "enquire": "引き続き Apple Pay で支払しますか?",
+      "paywith": "...で支払う"
+    },
+    "customer": {
+      "error_message_1": "メールアドレスに登録して、最新情報や限定オファーなどを入手しましょう",
+      "error_message_1001": "パスワードエラー",
+      "error_message_1002": "ユーザーなし",
+      "error_message_1003": "アカウントの一時的ロック",
+      "error_message_1004": "操作が多すぎます。後でもう一度やり直してください",
+      "error_message_1005": "コード有効期限切れ",
+      "error_message_1006": "コードエラー",
+      "error_message_1007": "確認コードの操作が多すぎます。確認コードを再取得してください",
+      "error_message_1008": "サードパーティのチャネルログインは設定されていません",
+      "error_message_1009": "サードパーティのインターフェイスを呼び出すことができません",
+      "error_message_1010": "送信失敗",
+      "error_message_1011": "アカウントがまだアクティブ化されていません",
+      "error_message_1012": "サーバーエラー",
+      "error_message_1013": "サーバーエラー",
+      "error_message_1014": "確認コードを検証することが失敗しました",
+      "error_message_1015": "動的検証コードを検証してください",
+      "error_message_1016": "サーバーエラー",
+      "error_message_1017": "このアカウントはリスクがあります",
+      "error_message_1018": "メールアドレスは設定されていました",
+      "error_message_1020": "ログインタイムアウト",
+      "error_message_1021": "ログインタイムアウト",
+      "error_message_1022": "アカウントは設定されていました",
+      "error_message_1023": "サーバーエラー",
+      "error_message_1024": "サーバーエラー",
+      "error_message_1035": "確認コードを送信してください",
+      "error_message_2": "サーバーエラー",
+      "error_message_2001": "携帯電話が登録されました",
+      "error_message_2002": "メールアドレスが登録されました",
+      "error_message_2003": "試行の頻度が多すぎます",
+      "error_message_2004": "コード有効期限切れ",
+      "error_message_2005": "コードエラー",
+      "error_message_2006": "確認の回数が多すぎます。別のコードを取得してください",
+      "error_message_2007": "サーバーエラー、後でもう一度試してください",
+      "error_message_2014": "このアカウントが盗まれるリスクがあります",
+      "error_message_2016": "このアカウントが盗まれるリスクがあります",
+      "error_message_3": "サーバーエラー",
+      "error_message_3001": "サーバーエラー、後でもう一度試してください",
+      "error_message_3002": "不正な操作",
+      "error_message_3003": "試行の頻度が多すぎます",
+      "error_message_3004": "コード有効期限切れ",
+      "error_message_3005": "コードエラー",
+      "error_message_3006": "確認の回数が多すぎます。別のコードを取得してください",
+      "error_message_3007": "この携帯電話は存在しません",
+      "error_message_3008": "このメールアドレスは存在しません",
+      "error_message_3009": "この携帯電話は他のアカウントに関連付けられています",
+      "error_message_3010": "このメールアドレスは他のアカウントに関連付けられています",
+      "error_message_3014": "コード送信エラー",
+      "error_message_3015": "アカウントが有効化されました",
+      "error_message_3022": "リンクがすでに無効になりました",
+      "error_message_3023": "リンクのフォーマットが不正です",
+      "error_message_3024": "リンクパラメータエラー",
+      "error_message_3026": "アカウントフォーマットエラー",
+      "error_message_4": "サーバーエラー",
+      "error_message_5": "サーバーエラー",
+      "error_message_6": "サーバーエラー",
+      "error_message_7": "パスワードは、数字、大文字、小文字で構成される 6 ～ 18 文字である必要があります"
+    },
+    "editorSwitchCountryTip": "エディタで国の切り替えがサポートされていません",
+    "shopby": {
+      "button": {
+        "show": ""
+      }
+    }
+  },
+  "product": {
+    "detail": {
+      "sku": {
+        "foldUp": {
+          "text": ""
+        },
+        "foldup": {
+          "text": "バリエーションを選択"
+        }
+      }
+    }
+  }
+}

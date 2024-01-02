@@ -1,0 +1,49 @@
+<style>
+  @media (max-width: 749.98px) {
+    .recommend-gap{
+      margin-top: 40px;
+      margin-bottom:  40px;
+    }
+    .section-gap .product-recommend {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .product-recommend .product-item-swiper-list {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .product-recommend .product-item-swiper-list .swiper-container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .recommend-gap .swiper-container {
+      margin-bottom: -30px;
+      padding-bottom: 30px;
+    }
+  }
+
+  @media (min-width: 749.98px) {
+    .recommend-gap{
+      margin-top: 60px;
+      margin-bottom:  60px;
+    }
+    .section-gap .product-recommend {
+      .product-item-swiper-list  {
+        margin-right: 0;
+      }
+    }
+    .recommend-gap .swiper-container {
+      margin-bottom: -60px;
+      padding-bottom: 60px;
+    }
+  }
+</style>
+<div class="container recommend recommend-gap">
+  
+  <div data-ssr-product-recommend-bottom></div>
+  
+  <div style="display: none;">
+    {{snippet "product/commons/product-item-list"}}
+  </div>
+</div>

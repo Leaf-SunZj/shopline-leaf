@@ -1,0 +1,150 @@
+{
+  "name": "products/detail.html",
+  "wrapper": "div#page-product-detail",
+  "sections": {
+    "recently-viewed": {
+      "type": "product/recently-viewed",
+      "disabled": false,
+      "settings": {
+        "show_product_number": 6,
+        "pc_cols": 4,
+        "md_cols": 2,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "product_image_ratio": "100",
+        "product_fill_type": "cover",
+        "product_hover_show_next": false
+      },
+      "blocks": {}
+    },
+    "product-preview": {
+      "type": "product/detail/product-preview",
+      "disabled": false,
+      "settings": {
+        "product_image_pc_show_style": "flatten",
+        "product_image_size": "medium",
+        "video_loop": false,
+        "video_autoplay": false,
+        "product_info_sticky": true,
+        "product_mobile_thumbnail_image_hide": "hide",
+        "default_selected_sku": true,
+        "product_image_show_sku_image": true,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "pc_breadcrumbs": true,
+        "mb_breadcrumbs": false,
+        "product_mobile_picture_mode": "full",
+        "main_image_ratio": "auto"
+      },
+      "blocks": {
+        "block-1": {
+          "type": "title",
+          "settings": {}
+        },
+        "block-2": {
+          "type": "abstract",
+          "settings": {}
+        },
+        "block-3": {
+          "type": "price",
+          "settings": {
+            "show_order": "discount_sell_origin",
+            "sell_font_size": "font_size_small",
+            "origin_font_size": "font_size_small",
+            "sell_font_bold": true
+          }
+        },
+        "block-4": {
+          "type": "sku-selector",
+          "settings": {
+            "sku_style": "flatten"
+          }
+        },
+        "block-5": {
+          "type": "quantity",
+          "settings": {
+            "is_show_stock_hint": true
+          }
+        },
+        "block-6": {
+          "type": "product-sell-info",
+          "settings": {
+            "layout": "vertical",
+            "product_sales_point_1_icon": "globe",
+            "product_sales_point_1": "Free worldwide shipping",
+            "product_sales_point_2_icon": "checkmark",
+            "product_sales_point_2": "Free returns",
+            "product_sales_point_3_icon": "leaf",
+            "product_sales_point_3": "Carbon neutral",
+            "product_sales_point_4_icon": "lock",
+            "product_sales_point_4": "Secure payments",
+            "product_sales_point_1_custom_icon": "",
+            "product_sales_point_2_custom_icon": "",
+            "product_sales_point_3_custom_icon": "",
+            "product_sales_point_4_custom_icon": ""
+          }
+        },
+        "block-7": {
+          "type": "buy-button",
+          "settings": {}
+        },
+        "block-8": {
+          "type": "description",
+          "settings": {
+            "location": "image_right"
+          }
+        },
+        "block-9": {
+          "type": "share",
+          "settings": {}
+        },
+        "block-10": {
+          "type": "product-additional",
+          "settings": {
+            "product_custom_tab1_title": "",
+            "product_custom_tab1_desc": "",
+            "product_custom_tab1_icon": "none",
+            "product_custom_tab1_fold": true,
+            "product_custom_tab2_title": "",
+            "product_custom_tab2_desc": "",
+            "product_custom_tab2_icon": "none",
+            "product_custom_tab2_fold": true,
+            "product_custom_tab3_title": "",
+            "product_custom_tab3_desc": "",
+            "product_custom_tab3_icon": "none",
+            "product_custom_tab3_fold": true,
+            "product_custom_tab1": "",
+            "product_custom_tab1_custom_icon": null,
+            "product_custom_tab2": "",
+            "product_custom_tab2_custom_icon": null,
+            "product_custom_tab3": "",
+            "product_custom_tab3_custom_icon": null
+          }
+        },
+        "block-11": {
+          "type": "stockNumber",
+          "settings": {
+            "stockNumber": false
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "block-3",
+        "block-4",
+        "block-5",
+        "block-11",
+        "block-6",
+        "block-7",
+        "block-8",
+        "block-9",
+        "block-10"
+      ]
+    }
+  },
+  "order": [
+    "product-preview",
+    "recently-viewed"
+  ]
+}

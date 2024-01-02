@@ -1,0 +1,125 @@
+input{
+  -webkit-appearance:none;
+}
+.footer__promotion{
+  display:flex;
+  overflow-x:hidden;
+}
+.footer__promotion .footer__promotion-img{
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:0;
+}
+.footer__promotion .footer__promotion-img img{
+  height:100%;
+  max-width:100%;
+  object-fit:cover;
+  width:100%;
+}
+.footer__promotion .footer__promotion-block{
+  border-radius:0 !important;
+  box-sizing:content-box;
+  display:flex;
+  min-height:190px;
+  overflow:hidden;
+  position:relative;
+  width:100%;
+}
+[data-edges=square] .footer__promotion .footer__promotion-block{
+  border-radius:0;
+}
+
+[data-edges=rounded] .footer__promotion .footer__promotion-block{
+  border-radius:15px;
+}
+
+.footer__promotion .footer__promotion-block .footer__promotion-block-link{
+  cursor:pointer;
+  display:inline-block;
+  height:100%;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:3;
+}
+.footer__promotion .footer__promotion-block .footer__promotion-block-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+  width:100%;
+  z-index:2;
+}
+.footer__promotion .color-scheme-none{
+  border:1px solid rgba(var(--color-entry-line));
+}
+[data-type_title_uppercase=true] .footer__promotion .title5{
+  text-transform:uppercase;
+}
+
+.footer__promotion .footer__promotion-text{
+  margin-top:15px;
+}
+.footer__promotion .footer__promotion-btn-link{
+  -webkit-tap-highlight-color:transparent;
+  color:inherit;
+  cursor:pointer;
+  display:inline-block;
+  margin-top:15px;
+}
+.footer__promotion .footer__promotion-btn-link:focus,.footer__promotion .footer__promotion-btn-link:hover{
+  color:inherit;
+}
+.footer__promotion .footer__promotion-hasimg .footer__promotion-img:before{
+  background-color:rgba(0,0,0,.4);
+  content:"";
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+.footer__promotion .footer__promotion-hasimg .footer__promotion-text,.footer__promotion .footer__promotion-hasimg .footer__promotion-title{
+  color:#fff;
+}
+.footer__promotion .footer__promotion-hasimg .footer__promotion-btn{
+  -webkit-tap-highlight-color:transparent;
+  background-color:rgba(var(--color-btn-background));
+  border-color:rgba(var(--color-btn-background));
+  color:inherit;
+  color:rgba(var(--color-btn-text));
+  cursor:pointer;
+  margin-top:15px;
+}
+
+@media (max-width:749.98px){
+  .footer__promotion{
+    display:block;
+  }
+  .footer__promotion .footer__promotion-block .footer__promotion-block-content{
+    display:inline-block;
+    margin:40px 0;
+    padding:0 30px;
+  }
+
+  .footer__promotion-2 .footer__promotion-block{
+    width:100%;
+  }
+}
+@media (min-width:750px){
+  .footer__promotion-block:first-child{
+    padding-left:calc((100% - var(--sl-gutter-x, .75rem) * 2 - var(--page-width)) / 2);
+  }
+  .footer__promotion-block:first-child .footer__promotion-block-content{
+    padding-right:80px;
+  }
+  .footer__promotion-block:nth-child(2){
+    padding-right:calc((100% - var(--sl-gutter-x, .75rem) * 2 - var(--page-width)) / 2);
+  }
+  .footer__promotion-block:nth-child(2) .footer__promotion-block-content{
+    padding-left:60px;
+  }
+}

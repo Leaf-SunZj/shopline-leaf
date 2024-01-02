@@ -1,0 +1,414 @@
+---
+collection_products:
+  limit: {{ multiply section.settings.products_num 1 }}
+all_collections:
+  need_first_product: false
+---
+
+<!-- stage/featured-collection/index.js -->
+  {{ combine_asset_tag 'vendors/swiper.min.css' inline=true }}
+  {{ combine_asset_tag 
+    'vendors/swiper.min.js'
+    type="text/javascript"
+    defer=true
+  }}
+  {{ combine_asset_tag 
+    'theme-shared/utils/sectionsLoad/index.js'
+    'stage/featured-collection/index.js'
+    type="text/javascript"
+    defer=true
+  }}
+
+{{ combine_asset_tag 'stage/featured-collection/index.css' inline=true }}
+
+{{ assign 'prefix' 'stage-featured-collection' }}
+
+{{ assign 'productList' (get 'list' (get section.settings.product_categories collection_products)) }}
+{{#if (boolean (isTruthy section.settings.product_categories) '&&' (boolean (length productList) '!=' 0))}}
+  {{ assign 'categoryDetail' (get section.settings.product_categories all_collections) }}
+  {{ assign 'forbiddenBtn' false }}
+{{else}}
+  {{ assign 'productList' (product_mock_data section.settings.products_num 1) }}
+  {{ assign 'forbiddenBtn' true }}
+{{/if}}
+
+
+{{ assign 'real_product_img_width' (divide 1200 1) }}
+{{#if request.is_mobile}}
+  {{ assign 'real_product_img_width' 300 }}
+{{/if}}
+
+{{ assign 'settings' section.settings }}
+{{ assign 'button_text' settings.button_text }}
+{{ assign 'title' settings.title }}
+{{ assign 'full_width' settings.full_width }}
+{{#if section.settings.slice_in_pc_style '!==' 'normal'}}
+  
+  {{ assign 'full_width' false }}
+{{/if}}
+{{ assign 'slice_in_pc' section.settings.slice_in_pc }}
+{{ assign 'slice_in_mobile' settings.slice_in_mobile }}
+{{ assign 'product_categories' settings.product_categories }}
+{{ assign 'categoryDetail' (JSONparse '{}') }}
+{{#if product_categories}}
+  {{ assign 'categoryDetail' (get product_categories all_collections) }}
+{{/if}}
+{{ assign 'products_num' settings.products_num }}
+{{ assign 'list' (sliceListByGrid productList settings.products_num 1) }}
+{{ assign 'listLength' (length list) }}
+{{ assign 'first_product' (get '0' list) }}
+{{ assign 'sortationCoverImg' (get 'sortationCoverImg' categoryDetail) }}
+{{ assign 'cover_img' (default (get 'image' first_product) '') }}
+{{#if sortationCoverImg}}
+  {{ assign 'cover_img' sortationCoverImg }}
+{{/if}}
+{{ assign 'showButton' (and (isTruthy button_text) (boolean listLength '>=' products_num)) }}
+
+{{ snippet 'section-padding-creator' sectionId=section.id paddingTop=section.settings.padding_top paddingBottom=section.settings.padding_bottom }}
+<script type="text/json" id="featuredCollection-data-{{ section.id }}">{{{ stringify section.settings }}}</script>
+{{ assign 'url_cellections' (append '/collections/' categoryDetail.sortationId) }}
+{{#if (isTruthy categoryDetail.uniqueKey)}}
+  {{ assign 'url_cellections' (append '/collections/' categoryDetail.uniqueKey) }}
+{{/if}}
+<div
+data-section-type="featured-collection"
+data-grid-horizontal-space="{{ theme.settings.grid_horizontal_space }}"
+data-section-id="{{ section.id }}"
+class="color-scheme-var-{{ section.settings.color_scheme }} section-gap __sl-custom-track-stage-featuredCollection
+  {{ prefix }} {{ prefix }}-{{ section.id }}
+  {{#if slice_in_pc}}{{ section.settings.slice_in_pc_style }}{{/if}}"
+>
+  {{#if section.settings.bg_image.url}}
+    <img class="lozad {{ prefix }}__bg-image" data-src="{{ section.settings.bg_image.url }}" data-sizes="auto"/>
+    <div class="{{ prefix }}__bg-image-mask" style="background-color: {{ section.settings.bg_image_mask_color }}; opacity: {{ section.settings.bg_image_mask_opacity }}%"></div>
+  {{/if}}
+  <div class='{{#if (isFalsey full_width)}}container{{else}}container-sm container-pc-padding{{/if}} {{ prefix }}--container {{#if slice_in_mobile}}slice_in_mobile{{/if}} {{#if slice_in_pc}}slice_in_pc{{/if}}'>
+    <div class="{{ prefix }}__title-box">
+      {{#and slice_in_pc (boolean section.settings.slice_in_pc_style '!=' 'normal')}}
+      <div class="{{ prefix }}__title--left">
+      {{/and}}
+      {{#if title}}
+        <h2 class="section-title title4 {{ prefix }}__title">{{ title }}</h2>
+      {{/if}}
+      {{#if showButton}}
+        {{ snippet 'view-more' className=(cond (boolean slice_in_pc_style '===' 'normal') 'd-none d-md-inline-block' '') href=(redirect_to url_cellections) text=button_text }}
+      {{/if}}
+      {{#and slice_in_pc (boolean section.settings.slice_in_pc_style '!=' 'normal')}}
+      </div>
+      {{/and}}
+      {{#and slice_in_pc (boolean section.settings.slice_in_pc_style '!=' 'normal')}}
+      <div class="{{ prefix }}__pagination {{#unless slice_in_mobile}}d-none d-md-flex{{/unless}}">
+        <div id="swiper-button-prev-{{ section.id }}" class="{{ prefix }}__blank-arrow">
+          {{ snippet 'icons/icon_strong_arrow_r' class='mobile-nav__icon' }}
+        </div>
+        <div id="swiper-button-next-{{ section.id }}" class="{{ prefix }}__blank-arrow">
+          {{ snippet 'icons/icon_strong_arrow_r' class='mobile-nav__icon' }}
+        </div>
+      </div>
+      {{/and}}
+    </div>
+    {{#or (isFalsey slice_in_mobile) (isFalsey slice_in_pc)}}
+    <div class="{{ prefix }}__list {{#if (isTruthy slice_in_mobile)}}d-none{{else}}d-block{{/if}} {{#if (isTruthy slice_in_pc)}}d-md-none{{else}}d-md-block{{/if}}" >
+      <div
+       class="row row-cols-{{ section.settings.md_cols }} row-cols-md-{{ section.settings.pc_cols }} {{ prefix }}__list-container">
+        {{#each list}}
+          <div class='{{ ../prefix }}__item-wrap' {{{ this.shopline_attributes }}}>
+            {{#if ../forbiddenBtn}}
+              {{ snippet 'product/commons/product-item' moduleType='featured-collection' section=../section hoverZIndex=9 forbiddenBtn=../forbiddenBtn imgRealWidth=../real_product_img_width backgroundColor='#f3f3f3' }}
+            {{else}}
+              {{ snippet 'product/commons/product-item' moduleType='featured-collection' section=../section hoverZIndex=9 forbiddenBtn=../forbiddenBtn imgRealWidth=../real_product_img_width }}
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/or}}
+    {{#or slice_in_mobile slice_in_pc}}
+    <div class="{{ prefix }}__swiper {{#if (isFalsey slice_in_mobile)}}d-none{{else}}d-block{{/if}} {{#if (isFalsey slice_in_pc)}}d-md-none{{else}}d-md-block{{/if}}">
+      
+      <div class="featured-collection-swiper-{{ section.id }} {{ prefix }}__swiper-box swiper-container {{ section.settings.slice_in_pc_style }}" >
+        <div class="swiper-wrapper row row-cols-{{ section.settings.md_cols }} row-cols-md-{{ section.settings.pc_cols }} no-wrap">
+          {{#each list}}
+            <div class='{{ ../prefix }}__item-wrap featured-collection-item-slide product-slide' {{{ this.shopline_attributes }}}>
+              {{#if ../forbiddenBtn}}
+                {{ snippet 'product/commons/product-item' moduleType='featured-collection' section=../section hoverZIndex=9 forbiddenBtn=../forbiddenBtn imgRealWidth=../real_product_img_width backgroundColor='#f3f3f3' }}
+              {{else}}
+                {{ snippet 'product/commons/product-item' moduleType='featured-collection' section=../section hoverZIndex=9 forbiddenBtn=../forbiddenBtn imgRealWidth=../real_product_img_width }}
+              {{/if}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      {{#if section.settings.slice_in_pc_style '===' 'normal'}}
+        <div id="swiper-button-prev-{{ section.id }}" class="{{ prefix }}__arrow {{ prefix }}__arrow--left d-none d-md-flex">
+          {{ snippet 'icons/icon_strong_arrow_r' class='mobile-nav__icon' }}
+        </div>
+        <div id="swiper-button-next-{{ section.id }}" class="{{ prefix }}__arrow {{ prefix }}__arrow--right d-none d-md-flex">
+          {{ snippet 'icons/icon_strong_arrow_r' class='mobile-nav__icon' }}
+        </div>
+      {{/if}}
+        {{#and showButton (boolean slice_in_pc_style '===' 'normal')}}
+          <div class="{{ prefix }}__action-wrap d-flex d-md-none">
+            <a class="btn btn-primary"
+              href="{{ redirect_to url_cellections }}">
+              {{ button_text }}
+            </a>
+          </div>
+        {{/and}}
+    </div>
+    {{/or}}
+  </div>
+</div>
+
+{{#schema}}
+{
+  "name": "t:sections.featured-collection.name",
+  "limit": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.featured-collection.settings.title.label",
+      "default": "Featured collection"
+    },
+    {
+      "type": "switch",
+      "id": "full_width",
+      "label": "t:sections.featured-collection.settings.full_width.label",
+      "default": false
+    },
+    {
+      "id": "product_categories",
+      "type": "collection_picker",
+      "label": "t:sections.featured-collection.settings.product_categories.label",
+      "default": ""
+    },
+    {
+      "id": "bg_image",
+      "type": "image_picker",
+      "label": "t:sections.featured-collection.settings.bg_image.label",
+      "default": ""
+    },
+    {
+      "id": "bg_image_mask_opacity",
+      "type": "range",
+      "label": "t:sections.featured-collection.settings.bg_image_mask_opacity.label",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "unit": "%"
+    },
+    {
+      "id": "bg_image_mask_color",
+      "type": "color_picker",
+      "label": "t:sections.featured-collection.settings.bg_image_mask_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.featured-collection.settings.color_scheme.label",
+      "default": "none",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.featured-collection.settings.color_scheme.options__0.label"
+        },
+        {
+          "value": 1,
+          "label": "t:sections.featured-collection.settings.color_scheme.options__1.label"
+        },
+        {
+          "value": 2,
+          "label": "t:sections.featured-collection.settings.color_scheme.options__2.label"
+        },
+        {
+          "value": 3,
+          "label": "t:sections.featured-collection.settings.color_scheme.options__3.label"
+        }
+      ]
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.featured-collection.settings.group_header__0.label"
+    },
+    {
+      "id": "products_num",
+      "type": "range",
+      "label": "t:sections.featured-collection.settings.products_num.label",
+      "min": 2,
+      "max": 24,
+      "step": 2,
+      "default": 4
+    },
+    {
+      "id": "pc_cols",
+      "type": "range",
+      "label": "t:sections.featured-collection.settings.pc_cols.label",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "id": "md_cols",
+      "type": "select",
+      "label": "t:sections.featured-collection.settings.md_cols.label",
+      "options": [
+        {
+          "value": 1,
+          "label": "t:sections.featured-collection.settings.md_cols.options__0.label"
+        },
+        {
+          "value": 2,
+          "label": "t:sections.featured-collection.settings.md_cols.options__1.label"
+        }
+      ],
+      "default": 1
+    },
+    {
+      "type": "switch",
+      "id": "slice_in_pc",
+      "label": "t:sections.featured-collection.settings.slice_in_pc.label",
+      "default": false
+    },
+    {
+      "id": "slice_in_pc_style",
+      "type": "select",
+      "label": "t:sections.featured-collection.settings.slice_in_pc_style.label",
+      "options": [
+        {
+          "value": "normal",
+          "label": "t:sections.featured-collection.settings.slice_in_pc_style.options__0.label"
+        },
+        {
+          "value": "left_blank",
+          "label": "t:sections.featured-collection.settings.slice_in_pc_style.options__1.label"
+        },
+        {
+          "value": "right_blank",
+          "label": "t:sections.featured-collection.settings.slice_in_pc_style.options__2.label"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "id": "slice_in_mobile",
+      "type": "switch",
+      "label": "t:sections.featured-collection.settings.slice_in_mobile.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "t:sections.featured-collection.settings.button_text.label",
+      "info": "t:sections.featured-collection.settings.button_text.info",
+      "default": "View all"
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.featured-collection.settings.group_header__1.label"
+    },
+    {
+      "id": "product_image_ratio",
+      "type": "select",
+      "label": "t:sections.featured-collection.settings.product_image_ratio.label",
+      "options": [
+        {
+          "value": "0",
+          "label": "t:sections.featured-collection.settings.product_image_ratio.options__0.label"
+        },
+        {
+          "value": "100",
+          "label": "t:sections.featured-collection.settings.product_image_ratio.options__1.label"
+        },
+        {
+          "value": "133.33",
+          "label": "3:4"
+        },
+        {
+          "value": "75",
+          "label": "t:sections.featured-collection.settings.product_image_ratio.options__3.label"
+        },
+        {
+          "value": "150",
+          "label": "t:sections.featured-collection.settings.product_image_ratio.options__4.label"
+        }
+      ],
+      "default": "100"
+    },
+    {
+      "id": "product_fill_type",
+      "type": "select",
+      "label": "t:sections.featured-collection.settings.product_fill_type.label",
+      "options": [
+        {
+          "value": "contain",
+          "label": "t:sections.featured-collection.settings.product_fill_type.options__0.label"
+        },
+        {
+          "value": "cover",
+          "label": "t:sections.featured-collection.settings.product_fill_type.options__1.label"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "id": "product_hover_show_next",
+      "type": "switch",
+      "label": "t:sections.featured-collection.settings.product_hover_show_next.label",
+      "default": false
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.featured-collection.settings.group_header__2.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.featured-collection.settings.padding_top.label",
+      "default": 60,
+      "max": 100,
+      "min": 0,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.featured-collection.settings.padding_bottom.label",
+      "default": 60,
+      "max": 100,
+      "min": 0,
+      "step": 2,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured-collection.presets.presets__0.name",
+      "category_index": 1,
+      "category": "t:sections.featured-collection.presets.presets__0.category",
+      "settings": {
+        "title": "Featured collection",
+        "full_width": false,
+        "product_categories": "",
+        "bg_image": null,
+        "color_scheme": "none",
+        "products_num": 4,
+        "pc_cols": 5,
+        "md_cols": 2,
+        "slice_in_pc": false,
+        "slice_in_mobile": true,
+        "button_text": "View all",
+        "product_image_ratio": "100",
+        "product_fill_type": "cover",
+        "product_hover_show_next": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  ]
+}
+{{/schema}}

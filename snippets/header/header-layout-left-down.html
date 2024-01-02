@@ -1,0 +1,78 @@
+<div class="header__layout-container header__layout--{{settings.navigation_layout}} header__menu-layout--{{settings.main_menu_layout}} color-scheme-{{settings.color_scheme}} {{#if settings.header_division_bottom}}header-division-bottom{{/if}}" data-no-effect>
+  <div class="header__layout-background {{header_padding_selector}}">
+    <div class="container g-2 g-md-5 header__layout header__layout--left-down {{#if settings.header_full_width}}header__full_screen_width{{/if}}">
+      <div class="header__item header__item--left d-md-flex">
+
+        
+        {{#and
+          (if settings.navigation_layout '!==' 'left-left')
+          (if settings.navigation_layout '!==' 'middle-left')
+        }}
+          <div class="header__nav-toggle j-header-nav-btn">
+            <a class="header__toggle-btn header__toggle-on">
+              {{ snippet 'icons/icon_menu' }}
+            </a>
+            <a class="header__toggle-btn header__toggle-off">
+              {{ snippet 'icons/icon_header_close' }}
+            </a>
+          </div>
+        {{/and}}
+
+        
+        <a class="header__drawer-btn j-header-drawer-btn  sl-icon-hover">
+          {{ snippet 'icons/icon_menu' }}
+        </a>
+
+        {{#if settings.show_search_entry}}
+          {{snippet 'header-btns' btns='search' classnames='header__layout--search-btn'}}
+        {{/if}}
+        
+        {{#and (if settings.navigation_layout "!==" "middle-line") (if settings.navigation_layout "!==" "middle-left")}}
+          <div class="header__layout--logo">
+            {{snippet 'header/header-logo' settings=settings}}
+          </div>
+        {{/and}}
+
+        <div class="header__layout--nav">
+          {{snippet 'desktop-site-nav' icon_prefix="header_center" blockObj=blockObj settings=settings main_menu=main_menu}}
+        </div>
+      </div>
+
+      
+      
+      {{#or (if settings.navigation_layout "===" "middle-line") (if settings.navigation_layout "===" "middle-left")}}
+        <div class="header__layout--logo">
+          {{snippet 'header/header-logo' settings=settings}}
+        </div>
+      {{/or}}
+
+      <div data-ssr-plugin-wishlist="header" class="header__item header__item--buttons">
+        {{#if settings.show_search_entry}}
+          {{snippet 'header-btns' btns='search' classnames='header__layout--search-btn' }}
+        {{/if}}
+        {{#if settings.show_user_entry}}
+          {{snippet 'header-btns' maskID="mask-1" btns='user' classnames='header__user-btn' }}
+        {{/if}}
+        {{#if settings.show_cart_entry}}
+          {{snippet 'header-btns' btns='cart'}}
+        {{/if}}
+        {{#if settings.navigation_layout "!==" "middle-left"}}
+          <div class="j-header-drawer-btn header__nav--drawer d-lg-none">
+            {{ snippet 'header-btns' btns='menu' }}
+          </div>
+        {{/if}}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="header__nav-container header__layout--nav {{#if settings.show_line_separator}}header__nav-container--border{{/if}} color-scheme-{{settings.color_scheme}}">
+    <div class="container g-4 g-md-6">
+      {{snippet 'desktop-site-nav' icon_prefix="header_down" blockObj=blockObj settings=settings main_menu=main_menu}}
+    </div>
+  </div>
+
+  {{#if theme.settings.cart_open_type '!==' 'drawer'}}
+    {{ snippet 'header-mini-cart' }}
+  {{/if}}
+</div>

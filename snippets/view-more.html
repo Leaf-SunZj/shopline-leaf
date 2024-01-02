@@ -1,0 +1,10 @@
+
+{{assign "_className" className}}
+{{assign "_text" (default text "view all")}}
+{{assign "_href" (default href "javascript:;")}}
+{{assign "_target" (default target "_self")}}
+{{assign "_title" title}}
+<a href="{{_href}}" class="view-more-btn body3 {{_className}}" title="{{_title}}" target="{{_target}}">
+  <span class="view-more-btn__button-text">{{_text}}</span>
+  <span class="view-more-btn__button-arrow">{{snippet "icons/icon_arrow_right_more" class="icon"}}</span>
+</a>

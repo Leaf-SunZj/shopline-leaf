@@ -1,0 +1,28 @@
+{{#with item}}
+    {{assign 'linkObj' (useLink url ../query)}}
+    <div class="footer__promotion-block color-scheme-{{color_scheme }} {{#if image_url.url}}footer__promotion-hasimg{{/if}}" {{{../shopline_attributes}}}>
+        {{#if (and url (isFalsey btn_title))}}
+          <a {{{linkObj.hrefAttr}}} class="footer__promotion-block-link"></a>
+        {{/if}}
+        {{#if image_url.url}}
+          <div class="footer__promotion-img">
+            <img class="lozad" data-sizes="auto" data-src="{{image_url.url}}" alt="{{image_url.alt}}"/>
+          </div>
+        {{/if}}
+        <div class="footer__promotion-block-content container">
+          <div class="title5 footer__promotion-title">{{title}}</div>
+          {{#if text}}
+            <div class="body3 footer__promotion-text sl-richtext">{{{text}}}</div>
+          {{/if}}
+          {{#if btn_title}}
+            <div>
+              {{#if image_url.url}}
+                <a {{{linkObj.hrefAttr}}} class="btn body4 footer__promotion-btn">{{btn_title}}</a>
+              {{else}}
+                <a {{{linkObj.hrefAttr}}} class="btn-link body4 footer__promotion-btn-link">{{btn_title}}</a>
+              {{/if}}
+            </div>
+          {{/if}}
+        </div>
+    </div>
+{{/with}}

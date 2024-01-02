@@ -1,0 +1,20 @@
+
+
+{{assign '_collections' (cond (isArray collectionData) collectionData (JSONparse '[]'))}}
+
+
+{{assign '_colNum' 3}}
+{{assign '_mbColNum' 1}}
+{{#if colNum}}
+  {{assign '_colNum' colNum}}
+{{/if}}
+{{#if mbColNum}}
+  {{assign '_mbColNum' mbColNum}}
+{{/if}}
+
+
+<div class="row row-cols-{{_mbColNum}} row-cols-md-{{_colNum}} shopline-element-collection-list">
+  {{#each _collections}}
+    {{snippet 'product/commons/collection-item' mSize=(append '1/' ../_mbColNum) pcSize=(append '1/' ../_colNum) index=@index sortationData=this imageRatio=../section.settings.collection_image_ratio imageFit=../section.settings.collection_fill_type}}
+  {{/each}}
+</div>

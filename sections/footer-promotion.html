@@ -1,0 +1,181 @@
+{{ assign 'customPages' (default section.settings.show_pages.customPages (JSONparse '[]')) }}
+{{ assign 'showType' section.settings.show_pages.showType }}
+{{ assign 'templateAlias' (cond (boolean templateAlias '===' 'Page') request.uri.params.pageId templateAlias) }}
+{{#if (boolean (isTruthy section.block_order.length) '&&' (boolean showType '===' 'all' '||' (inArray customPages templateAlias)))}}
+
+{{ assign 'paddingTop' section.settings.padding_top }}
+{{ assign 'paddingBottom' section.settings.padding_bottom }}
+{{ combine_asset_tag 'stage/footer-promotion/index.css' inline=true }}
+
+<style>
+#shopline-section-{{ section.id }} .footer__promotion-block {
+  padding-top: {{ paddingTop }}px;
+  padding-bottom: {{ paddingBottom }}px;
+}
+
+@media only screen and (max-width: 750px) {
+  #shopline-section-{{ section.id }} .footer__promotion-block:first-child {
+    padding-top: {{ divide paddingTop 2 }}px;
+    {{#if section.block_order.length '===' 2}}
+    padding-bottom: 0px;
+    {{/if}}
+  }
+  #shopline-section-{{ section.id }} .footer__promotion-block:last-child {
+    {{#if section.block_order.length '===' 2}}
+    padding-top: 0px;
+    {{/if}}
+    padding-bottom: {{ divide paddingBottom 2 }}px;
+  }
+}
+</style>
+<div class="footer__promotion-wrap __sl-custom-track-stage-footerPromotion">
+    <div class="footer__promotion {{#if section.block_order.length '===' 2}} footer__promotion-2 {{else}} footer__promotion-1 {{/if}}">
+      {{#with section as | section |}}
+          {{#each block_order as | blockId |}}
+              {{#with (lookup ../blocks blockId)}}
+                  {{ snippet 'footer-promotion/block' pcSize=(append '1/' section.block_order.length) mSize='100vw' query=../../../request.uri.query item=settings shopline_attributes=shopline_attributes }}
+              {{/with}}
+          {{/each}}
+      {{/with}}
+  </div>
+</div>
+{{else}}
+    <div class="footer__promotion-border"></div>
+{{/if}}
+
+{{#schema}}
+{
+  "name": "t:sections.footer-promotion.name",
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "showpage",
+      "id": "show_pages",
+      "default": {
+        "showType": "all",
+        "customPages": []
+      },
+      "label": "t:sections.footer-promotion.settings.show_pages.label"
+    },
+    {
+      "type": "group_header",
+      "label": "t:sections.footer-promotion.settings.group_header__0.label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:sections.footer-promotion.settings.padding_top.label",
+      "default": 60,
+      "max": 100,
+      "min": 0,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:sections.footer-promotion.settings.padding_bottom.label",
+      "default": 60,
+      "max": 100,
+      "min": 0,
+      "step": 2,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "richText",
+      "icon": "image",
+      "name": "t:sections.footer-promotion.blocks.richText.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_url",
+          "info": "t:sections.footer-promotion.blocks.richText.settings.image_url.info",
+          "label": "t:sections.footer-promotion.blocks.richText.settings.image_url.label"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "default": "Site-wide promotion",
+          "label": "t:sections.footer-promotion.blocks.richText.settings.title.label"
+        },
+        {
+          "id": "text",
+          "type": "richtext",
+          "default": "Use this section to promote content throughout every page of your site. Add images for further impact",
+          "label": "t:sections.footer-promotion.blocks.richText.settings.text.label"
+        },
+        {
+          "id": "btn_title",
+          "type": "text",
+          "default": "Optional button",
+          "label": "t:sections.footer-promotion.blocks.richText.settings.btn_title.label"
+        },
+        {
+          "id": "url",
+          "type": "url",
+          "label": "t:sections.footer-promotion.blocks.richText.settings.url.label"
+        },
+        {
+          "type": "select",
+          "id": "color_scheme",
+          "default": "1",
+          "label": "t:sections.footer-promotion.blocks.richText.settings.color_scheme.label",
+          "options": [
+            {
+              "value": "none",
+              "label": "t:sections.footer-promotion.blocks.richText.settings.color_scheme.options__0.label"
+            },
+            {
+              "value": "1",
+              "label": "t:sections.footer-promotion.blocks.richText.settings.color_scheme.options__1.label"
+            },
+            {
+              "value": "2",
+              "label": "t:sections.footer-promotion.blocks.richText.settings.color_scheme.options__2.label"
+            },
+            {
+              "value": "3",
+              "label": "t:sections.footer-promotion.blocks.richText.settings.color_scheme.options__3.label"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {
+      "show_pages": {
+        "showType": "all",
+        "customPages": []
+      },
+      "padding_top": 60,
+      "padding_bottom": 60
+    },
+    "blocks": [
+      {
+        "type": "richText",
+        "settings": {
+          "title": "Site-wide promotion",
+          "text": "Use this section to promote content throughout every page of your site. Add images for further impact.",
+          "btn_title": "Optional button",
+          "color_scheme": "1"
+        }
+      },
+      {
+        "type": "richText",
+        "settings": {
+          "title": "Site-wide promotion",
+          "text": "Use this section to promote content throughout every page of your site. Add images for further impact.",
+          "btn_title": "Optional button",
+          "color_scheme": "2"
+        }
+      }
+    ]
+  }
+}
+{{/schema}}
+
+
+

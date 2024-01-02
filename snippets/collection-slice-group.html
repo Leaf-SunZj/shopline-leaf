@@ -1,0 +1,42 @@
+{{assign "pag_size" (times mobile_cols mobile_rows)}}
+{{assign "total" (size blocks)}}
+{{assign "page_num" (ceil (divide total pag_size))}}
+
+<div class="colletionlist__group d-md-none">
+  {{! swiper 挂载点 }}
+  <div class="colletionlist__group-{{section.id}} colletionlist__swiper-box">
+    <div class="swiper-wrapper no-wrap">
+      {{#each blocks}}
+        {{assign "sortationData" (get settings.category_id ../all_collections)}}
+        {{#if (boolean (boolean settings.title "===" undefined) "||" (boolean settings.title "===" ""))}}
+          {{#if (isFalsey settings.category_id)}}
+            {{assign "showTitle" "Example Collection"}}
+          {{else}}
+            {{assign "showTitle" (get "title" sortationData)}}
+          {{/if}}
+        {{else}}
+          {{assign "showTitle" settings.title}}
+        {{/if}}
+        {{#if (modulo @index ../pag_size) '===' 0 }}
+            <div class="collection-item-slide row row-cols-{{../mobile_cols}}">
+        {{/if}}
+          {{snippet
+            "product/commons/collection-item"
+            sortationData=sortationData
+            title=showTitle
+            imageRatio=../imageRatio
+            bgDisplayPosition=settings.image_display_area
+            titleColor="inherit"
+            section=../section
+          }}
+        {{#or (if (modulo (plus @index 1) ../pag_size ) '===' 0) (if (plus @index 1) "===" ../total) }}
+          </div>
+        {{/or}}
+      {{/each}}
+    </div>
+    {{#if page_num ">" 1}}
+      <div class="colletionlist__group__pagination" style="--pagination-background-color:var(--color-scheme-{{color_scheme}}-text);">
+      </div>
+    {{/if}}
+  </div>
+</div>

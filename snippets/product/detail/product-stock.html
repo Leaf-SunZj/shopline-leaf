@@ -1,0 +1,6 @@
+{{ assign 'isShowStock' (and (boolean selectSku) (boolean settings.stockNumber)) }}
+
+<div class="product-in-stock body3 {{#not isShowStock }}stock-hide{{/not}}" id="product-in-stock_{{id}}" stock-number="{{ settings.stockNumber }}">
+  <span class="stock-bock">{{t 'products.product_details.inventory_quantity'}} : </span>
+  <span class="stock-bock stock-num">{{ selectSku.stock }}</span>
+</div>

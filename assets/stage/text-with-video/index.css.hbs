@@ -1,0 +1,223 @@
+input{
+  -webkit-appearance:none;
+}
+.video__container.video__full-width{
+  max-width:100%;
+  padding-left:0;
+  padding-right:0;
+  width:100%;
+}
+.video__container.video__full-width .video__section{
+  max-width:100%;
+}
+.video__section{
+  margin:auto;
+}
+
+.video__title{
+  overflow:hidden;
+  padding-bottom:30px;
+}
+@media (max-width:749.98px){
+  .video__title{
+    overflow:hidden;
+    padding-bottom:20px;
+  }
+}
+
+.video__caption{
+  padding-top:15px;
+}
+@media (max-width:749.98px){
+  .video__caption{
+    padding:15px 10px 0;
+  }
+}
+
+.video{
+  position:relative;
+}
+.video__cover{
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:1;
+}
+
+.video__cover-img{
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  opacity:0;
+  width:100%;
+}
+.video__cover-img.lazyloaded{
+  opacity:1;
+}
+
+.video__controll{
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+.video__controll .is-vimeo>div{
+  height:100%;
+  left:0;
+  padding:0 !important;
+  position:absolute !important;
+  top:0;
+  width:100%;
+}
+.video__controll .placeholder-svg{
+  background-color:#f3f3f3;
+  display:block;
+  height:100%;
+  left:0;
+  max-height:100%;
+  max-width:100%;
+  padding:30px 0;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+
+.video--r3-2{
+  padding-top:66.6666666667%;
+}
+
+.video--r4-3{
+  padding-top:75%;
+}
+
+.video--r16-9{
+  padding-top:56.25%;
+}
+
+.video--r21-9{
+  padding-top:42.8571428571%;
+}
+
+.video--playing .video__cover{
+  z-index:0;
+}
+
+.video iframe,.video-overlay{
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+
+.video-overlay{
+  align-items:center;
+  display:flex;
+  justify-content:center;
+}
+.video-overlay__button{
+  cursor:pointer;
+  font-size:66px;
+  transition:transform .1s ease;
+}
+.video-overlay__button:hover{
+  transform:scale(1.1);
+}
+.video-overlay__button svg{
+  display:block;
+}
+
+@media (max-width:749.98px){
+  .video-overlay__button{
+    font-size:44px;
+  }
+}
+.section--divider{
+  border-top:1px solid;
+  border-top-color:rgba(var(--color-entry-line));
+  padding-top:40px;
+}
+
+@media (min-width:750px){
+  .section--divider{
+    padding-top:80px;
+  }
+}
+.text-with-video{
+  align-items:center;
+  display:flex;
+}
+.text-with-video .text-with-video__block{
+  padding:0 0 0 60px;
+  width:50%;
+}
+.text-with-video .text-with-video__videowrap{
+  width:50%;
+}
+.text-with-video .text-with-video__videowrap .video-bg-img{
+  height:100%;
+  object-fit:cover;
+  width:100%;
+}
+.text-with-video .text-with-video__subTitle{
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+.text-with-video .text-with-video__title{
+  margin-bottom:15px;
+}
+.text-with-video .text-with-video__btn{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:30px;
+}
+.text-with-video .text-with-video__btn .btn:first-child{
+  display:inline-block;
+}
+.text-with-video .text-with-video__btn .btn-text1{
+  background-color:rgba(var(--color-btn-background));
+  border-color:rgba(var(--color-btn-background));
+}
+.text-with-video .text-with-video__btn .btn-text2{
+  background-color:transparent;
+  border-color:rgba(var(--color-btn-background));
+  color:rgba(var(--color-btn-background));
+}
+.text-with-video .sl-richtext,.text-with-video .text-with-video__subTitle,.text-with-video .text-with-video__title{
+  word-break:break-word;
+}
+
+.text-with-video__position-left{
+  flex-direction:row-reverse;
+}
+.text-with-video__position-left .text-with-video__block{
+  padding:0 60px 0 0;
+}
+
+@media (max-width:749.98px){
+  .text-with-video{
+    display:block;
+  }
+  .text-with-video .text-with-video__videowrap{
+    width:100%;
+  }
+  .text-with-video .text-with-video__block{
+    padding:0;
+    width:100%;
+  }
+  .text-with-video .text-with-video__videowrap{
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+  .text-with-video .text-with-video__subTitle{
+    margin-bottom:5px;
+    margin-top:15px;
+  }
+  .text-with-video .text-with-video__btn{
+    margin-top:20px;
+  }
+}

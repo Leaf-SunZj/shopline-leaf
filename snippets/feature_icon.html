@@ -1,0 +1,15 @@
+{{#if isFeatureMenu}}
+    <span class="decktop-site-nav_feature-icon">
+      {{#if (boolean settings.feature_menu_img '&&' settings.feature_menu_img.url)}}
+          <img style="width: 50px; max-height: 100px" {{{get 'responsiveAttr' (image_responsive settings.feature_menu_img.url breakpoints='50,100,150' pcSize='50px' mSize='50px' useLazyLoad=false ) }}} alt="{{settings.feature_menu_img.alt}}">
+      {{else if (boolean settings.feature_menu_icon '===' "hot")}}
+          {{snippet 'icons/icon_hot' prefix=prefix}}
+      {{else if (boolean settings.feature_menu_icon '===' "sale")}}
+          {{snippet 'icons/icon_sale' prefix=prefix}}
+      {{else if (boolean settings.feature_menu_icon '===' "fire")}}
+          {{snippet 'icons/icon_fire' prefix=prefix}}
+      {{else if (boolean settings.feature_menu_icon '===' "new")}}
+          {{snippet 'icons/icon_new' prefix=prefix}}
+      {{/if}}
+    </span>
+{{/if}}
